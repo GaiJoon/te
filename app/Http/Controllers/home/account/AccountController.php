@@ -19,8 +19,16 @@ class AccountController extends Controller
         $user = Users::where('username',session('username'))->first();
         $orders = \DB::table('path')->where('uid',$user['uid'])->get();
         // dd($orders);
-
+        
     	return view('home.goodsorders.orders',['orders'=>$orders]);
+    }
+
+    public function ajax(Request $request)
+    {
+        $id = $request->input('id');
+        $path = \DB::table('path')->where('pid',$id)->get();
+        // echo $path;
+        session(['path'=>$path]);
     }
     /**
      * 结算成功

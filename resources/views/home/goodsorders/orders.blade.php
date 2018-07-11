@@ -65,16 +65,10 @@
 
     });
 
-    $('.user-addresslist').click(function(){
-    	$(this).attr('ids');
-    	$.get('/',{},function(data){
-
-    	})
-    })
-
+    
     </script>
     <!-- //smooth-scrolling-of-move-up -->
-    <script src="/homes/js/bootstrap.js"></script>
+    <!-- <script src="/homes/js/bootstrap.js"></script> -->
 
 	</head>
 
@@ -98,7 +92,7 @@
 						<ul>
 							@foreach($orders as $k=>$v)
 							<div class="per-border"></div>
-							<li class="user-addresslist" ids="{{}}">
+							<li class="user-addresslist" ids="{{$v->pid}}">
 
 								<div class="address-left">
 									<div class="user DefaultAddr">
@@ -143,6 +137,16 @@
 
 						<div class="clear"></div>
 					</div>
+					<script>
+						$('.user-addresslist').click(function(){
+					    	var id = $(this).attr('ids');
+					    	console.log(id);
+					    	$.get('/orders/ajax',{'id':id},function(data){
+					    		console.log(data);
+					    	})
+					    })
+
+					</script>
 					<!--物流 -->
 					
 					<div class="clear"></div>
@@ -264,18 +268,18 @@
 											<p class="buy-footer-address">
 												<span class="buy-line-title buy-line-title-type">寄送至：</span>
 												<span class="buy--address-detail">
-								   <span class="province">湖北</span>省
-												<span class="city">武汉</span>市
-												<span class="dist">洪山</span>区
-												<span class="street">雄楚大道666号(中南财经政法大学)</span>
+								   <span class="province">{{session('path')->province}}</span>
+												<span class="city">{{session('path')['city']}}</span>
+												<span class="dist">{{session('path')['town']}}</span>
+												<span class="street">{{session('path')['detail']}}</span>
 												</span>
 												</span>
 											</p>
 											<p class="buy-footer-address">
 												<span class="buy-line-title">收货人：</span>
 												<span class="buy-address-detail">   
-                                         <span class="buy-user">艾迪 </span>
-												<span class="buy-phone">15871145629</span>
+                                         <span class="buy-user">{{session('path')['pname']}}</span>
+												<span class="buy-phone">{{session('path')['phone']}}</span>
 												</span>
 											</p>
 										</div>
