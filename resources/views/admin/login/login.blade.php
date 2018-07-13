@@ -13,6 +13,9 @@
     </head>
     
     <body>
+
+                
+
         <div class="login_box">
             <div class="login_l_img">
                 <img src="/picture/login-img.png" />
@@ -20,7 +23,7 @@
             <div class="login">
                 <div class="login_logo">
                     <a href="#">
-                        <img src="/picture/login_logo.png" />
+                        <img src="{{session('img')}}" />
                     </a>
                 </div>
                 <div class="login_name">
@@ -49,5 +52,15 @@
         <div style="text-align:center;">
         </div>
     </body>
+    <script src='/bs/js/jquery.min.js'></script>
+    <script src="/js/core/jquery-1.8.3.min.js"></script>
+    
+
+<script type="text/javascript">
+       
+    
+
+      
+</script>
 
 </html>

@@ -19,28 +19,40 @@ class LoginController extends Controller
     }
     public function dologin(Request $request)
     {
-    	//表单验证
-    	// $res=$request->all();
-    	$res=$request->except('_token');
-    	// 带着条件去查找
-    	$uname=Users::where('username',$res['username'])->first();
+	    	//表单验证
+	    	// $res=$request->all();
+	    	$res=$request->except('_token');
+	    	// 带着条件去查找
+	    	$uname=Users::where('username',$res['username'])->first();
+
+	    	// dump($uname);die;
+	    	
+
+	    
+	    	// 获取用户名
+	    	if(!$uname){
+	    		return back()->with('error','用户名不正确');
+	    	}
+	    	// 判断密码
+	    	if(!Hash::check($res['password'],$uname->password)){
+	    		return back()->with('error','密码错误');
+	    	}
+	    	// 验证码
+	    	if(session('code')!=$res['code']){
+	    		return back()->with('error','验证码错误');
+	    	}
+
+	
     	
-    	// 获取用户名
-    	if(!$uname){
-    		return back()->with('error','用户名不正确');
-    	}
-    	// 判断密码
-    	if(!Hash::check($res['password'],$uname->password)){
-    		return back()->with('error','密码错误');
-    	}
-    	// 验证码
-    	if(session('code')!=$res['code']){
-    		return back()->with('error','验证码错误');
-    	}
+
+	    $img = $uname->img;
+	    session(['img'=>$img]);
     	session(['username'=>$res['username']]);
     	return redirect('/admin/index');
+
+    }
 	
-    } 
+
 
     //生成验证码方法
 	public function captcha()
@@ -80,4 +92,5 @@ class LoginController extends Controller
 		// 跳转
 		return redirect('/admin/login/login');
 	}
+	
 }

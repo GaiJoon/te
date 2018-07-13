@@ -5,28 +5,18 @@
 $(function () {
 
     //全局的checkbox选中和未选中的样式
-    var $allCheckbox = $(':checkbox'),     //全局的全部checkbox
+    var $allCheckbox = $('input[type="checkbox"]'),     //全局的全部checkbox
         $wholeChexbox = $('.whole_check'),
         $cartBox = $('.cartBox'),                       //每个商铺盒子
         $shopCheckbox = $('.shopChoice'),               //每个商铺的checkbox
         $sonCheckBox = $('.son_check');                 //每个商铺下的商品的checkbox
     $allCheckbox.click(function () {
         if ($(this).is(':checked')) {
-            var id = $(this).attr('idsss');
-
-
-            console.log(id);
-             $.post('/home/zongjia',{id:id},function(data){
-            console.log(data);
-
-        })
-              totalMoney();
-
             $(this).next('label').addClass('mark');
         } else {
             $(this).next('label').removeClass('mark')
         }
-            });
+    });
 
     //===============================================全局全选与单个商品的关系================================
     $wholeChexbox.click(function () {
@@ -151,16 +141,6 @@ $(function () {
             $obj.removeClass('reSty');
         }
         totalMoney();
-
-
-         var id = $(this).attr('idss');
-         // console.log(id);
-         var sum = $count
-         // console.log(sum);
-
-        $.post('/home/jia',{sum:sum,id:id},function(data){
-            console.log(data);
-        })
     });
 
     $reduce.click(function () {
@@ -177,15 +157,6 @@ $(function () {
             $(this).addClass('reSty');
         }
         totalMoney();
-
-        var id = $(this).attr('idss');
-         // console.log(id);
-         var sum = $count
-         // console.log(sum);
-
-        $.post('/home/jian',{sum:sum,id:id},function(data){
-            console.log(data);
-        })
     });
 
     $all_sum.keyup(function () {
@@ -237,8 +208,6 @@ $(function () {
         totalMoney();
     })
 
-
-
     //======================================总计==========================================
 
     function totalMoney() {
@@ -256,17 +225,11 @@ $(function () {
         $('.total_text').html('￥'+total_money);
         $('.piece_num').html(total_count);
 
-
-         $.post('/home/zongjia',{'zongjia':total_money,'num':total_count},function(data){
-            console.log(data);
-        })
         // console.log(total_money,total_count);
 
         if(total_money!=0 && total_count!=0){
             if(!calBtn.hasClass('btn_sty')){
                 calBtn.addClass('btn_sty');
-                calBtn.attr('href','/orders/index')
-                // $.post('/orders/delajax',{})
             }
         }else{
             if(calBtn.hasClass('btn_sty')){

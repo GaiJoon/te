@@ -13,15 +13,7 @@
     </div>
 
     <div class="tpl-block">
-            @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+
         <div class="am-g">
             <div class="tpl-form-body tpl-form-line">
                 <form class="am-form tpl-form-line-form" action="/admin/lunbo" method="post" enctype="multipart/form-data">
@@ -63,7 +55,7 @@
 									<i class="am-icon-cloud-upload"></i> 添加封面图片</button>
                                 
                             </div>
-                             <small>图片每次只能三张</small>
+
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -78,15 +70,7 @@
 						};
 
                     </script>
-                    <div class="am-form-group">
-                        <label for="user-name" class="am-u-sm-3 am-form-label">状态 <span class="tpl-form-line-small-title">status</span></label>
-                        <div class="am-u-sm-9">
-                            <input type="radio" name="status" value="1" checked class="tpl-form-input">
-                            <small>关闭</small>
-                            <input type="radio" name="status" value="2" class="tpl-form-input" >
-                            <small>开启</small>
-                        </div>
-                    </div>
+
                    
                    
                     <div class="am-form-group">
@@ -102,17 +86,4 @@
 
 
 </div>
-@endsection
-@section('js')
-<script type="text/javascript">
-    
-    /*setTimeout(function(){
-
-        $('.mws-form-message').remove();
-
-    },3000)*/
-
-    $('.mws-form-message').fadeOut(2000);
-
-</script>
 @endsection
