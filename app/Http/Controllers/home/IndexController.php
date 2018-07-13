@@ -28,7 +28,7 @@ class IndexController extends Controller
     	$goods = Goods::with('gimg')
     			->where('id','<', 50)
                	->orderBy(DB::raw('RAND()'))
-               	->take(8)
+               	->take(12)
     			->get();
 
     	// dd($goods);

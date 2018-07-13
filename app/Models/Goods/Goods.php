@@ -28,7 +28,7 @@ class Goods extends Model
      *
      * @var array
      */
-    protected $fillable = ['gname','company','price','status','stock','addtime','tid','gdesc'];
+    protected $fillable = ['gname','company','price','cheap','status','stock','addtime','tid','gdesc'];
 
      
 

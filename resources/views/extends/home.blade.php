@@ -38,7 +38,7 @@
     <script>
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
-            autoPlay: 3000, //Set AutoPlay to 3 seconds 
+            autoPlay: 4000, //Set AutoPlay to 3 seconds 
             items: 4,
             itemsDesktop: [640, 5],
             itemsDesktopSmall: [480, 2],
@@ -164,7 +164,7 @@
                         <a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
                     </div>
                     <div class="cart">
-                        <form action="/" method="post" class="last">
+                        <form action="/cart/index" method="post" class="last">
 
 
                                 {{csrf_field()}}
@@ -394,6 +394,12 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
+
+@section('js')
+
+
+@show
 </body>
 
 </html>

@@ -303,4 +303,30 @@ class GoodsAdminController extends Controller
 
        }
     }
+
+
+
+    public function ajax(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+
+        // $status = $request->input('value');
+
+        try{
+        if($status == '0'){
+            $data = Goods::where('id',$id)->update(['status'=>'1']);
+            echo 1;
+        }else{
+            $data = Goods::where('id',$id)->update(['status'=>'0']);
+            echo 0;
+        }
+
+
+    }catch(\Exception $e){
+        echo 2;
+        
+    }
+    }
+   
 }

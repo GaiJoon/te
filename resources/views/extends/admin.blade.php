@@ -165,7 +165,30 @@
                             </li>
                         </ul>
                     </li>
+                    
 
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>评论管理</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                            <li>
+
+                                <a href="/admin/goods/create">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>添加评论</span>
+                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+
+                                <a href="/admin/goods">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>浏览评论</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">

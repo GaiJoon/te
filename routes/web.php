@@ -190,6 +190,18 @@ Route::group([],function(){
 	Route::resource('admin/goods','admin\goods\GoodsAdminController');
 
 
+	//上架   下架
+	Route::any('admin/ajax','admin\goods\GoodsAdminController@ajax');
+
+
+
+
+
+
+	//促销商品管理
+	Route::resource('admin/cheap','admin\goods\GoodsCheapController');
+
+
 
 });
 

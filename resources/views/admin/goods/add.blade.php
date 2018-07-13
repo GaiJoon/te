@@ -99,9 +99,17 @@
 
                                 
                                 <div class="am-form-group">
-                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品价格</label>
+                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品原价价格</label>
                                     <div class="am-u-sm-9">
                                         <input type="text"  id="user-QQ" name="price">
+                                    </div>
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品促销价格</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text"  id="user-QQ" name="cheap">
                                     </div>
                                 </div>
 

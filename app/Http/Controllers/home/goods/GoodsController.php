@@ -36,17 +36,19 @@ class GoodsController extends Controller
                 // 如果有类别id
                 if(!empty($gid)){
                     $query->where('tid',$gid);
-                }
-
-               
-            })
+                }  
+            })->where('status','0')
             ->get();
-        // dd($goods);
 
-
+            $res = Goods::with('gimg')
+                ->where('id','<', 50)
+                ->orderBy(DB::raw('RAND()'))
+                ->take(12)
+                ->get();
         return view('home.goods.list',[
             'title'=>'商品列表',
-            'goods'=>$goods
+            'goods'=>$goods,
+            'res'=>$res
         ]);
         
        
@@ -66,9 +68,17 @@ class GoodsController extends Controller
         $data = Goods::with('gimg')->where('id',$id)->get();
         // dd($data);
 
+        $res = Goods::with('gimg')
+                ->where('id','<', 50)
+                ->orderBy(DB::raw('RAND()'))
+                ->take(12)
+                ->get();
+
+
         return view('home.goods.details',[
             'title'=>'商品详情',
-            'data'=>$data
+            'data'=>$data,
+            'res'=>$res
         ]);
        
     }   

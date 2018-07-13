@@ -75,9 +75,18 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品价格</label>
+                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品原价格</label>
                                     <div class="am-u-sm-9">
                                         <input type="text"  id="user-QQ" name="price"  value="{{$goodsone->price}}">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="am-form-group">
+                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">商品促销价格</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text"  id="user-QQ" name="cheap"  value="{{$goodsone->cheap}}">
                                     </div>
                                 </div>
 
@@ -122,8 +131,8 @@
 								<div class="am-form-group">
                                     <label for="user-QQ" class="am-u-sm-3 am-form-label">商品状态</label>
                                     <div class="am-u-sm-9">
-                                            <input type="radio" name='status' value='1' @if($goodsone->status=='1') checked='checked' @endif > <label>上架</label>
-                                            <input type="radio" name='status' value='0' @if($goodsone->status=='0') checked='checked' @endif> <label>下架</label>
+                                            <input type="radio" name='status' value='1' @if($goodsone->status=='0') checked='checked' @endif > <label>上架</label>
+                                            <input type="radio" name='status' value='0' @if($goodsone->status=='1') checked='checked' @endif> <label>下架</label>
                                     </div>
                                 </div>
 

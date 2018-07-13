@@ -8,7 +8,6 @@
 @section('content')
 
 
-
 <script>
 	// Can also be used with $(document).ready()
 	$(window).load(function() {
@@ -30,14 +29,14 @@
 				<div class="single-page-row" id="detail-21">
 					<div class="col-md-6 single-top-left">	
 						<div class="flexslider">
-							<ul class="slides">
+							<ul class="slides" ">
 								<li data-thumb="{{$k->gimg[0]->gpic}}">
-									<div style="width: 358px; height: 434px; border: 1px solid red;" class="thumb-image detail_images"> <img src="{{$k->gimg[0]->gpic}}" data-imagezoom="true" width="100%" class="img-responsive" alt=""> </div>
+									<div style="width: 358px; height: 434px; border: 1px solid #eee; " class="thumb-image detail_images"> <img src="{{$k->gimg[0]->gpic}}" data-imagezoom="true" width="100%" class="img-responsive" alt=""> </div>
 								</li>
 								<li data-thumb="{{$k->gimg[1]->gpic}}">
-									 <div class="thumb-image"> <img src="{{$k->gimg[1]->gpic}}" data-imagezoom="true" width="100%" class="img-responsive" alt=""> </div>
+									 <div class="thumb-image" style="width: 358px; height: 434px; border: 1px solid #eee; "> <img  src="{{$k->gimg[1]->gpic}}" data-imagezoom="true" width="100%" class="img-responsive" alt=""> </div>
 								</li>
-								<li data-thumb="{{$k->gimg[2]->gpic}}">
+								<li data-thumb="{{$k->gimg[2]->gpic}}" style="width: 358px; height: 434px; border: 1px solid #eee; ">
 								   <div class="thumb-image"> <img src="{{$k->gimg[3]->gpic}}" data-imagezoom="true" width="100%" class="img-responsive" alt=""> </div>
 								</li> 
 							</ul>
@@ -67,6 +66,11 @@
 						</div> 
 						<p class="single-price-text">{{$k->gdesc}}</p>
 						<form action="#" method="post">
+
+								<input type="button" value="-" class="minus">
+								<input type="text" name="quantity" value="1" class="qty" size="3px" data-max="200" style="text-align: center" />
+								<input type="button" value="+" class="plus">
+							
 							<input type="hidden" name="cmd" value="_cart">
 							<input type="hidden" name="add" value="1"> 
 							<input type="hidden" name="w3ls_item" value="Snow Blower"> 
@@ -90,7 +94,7 @@
 			@endforeach
 			<!-- recommendations -->
 			<div class="recommend">
-				<h3 class="w3ls-title">推荐商品 </h3> 
+				<h3 class="w3ls-title">推荐商品</h3> 
 				<script>
 					$(document).ready(function() { 
 						$("#owl-demo5").owlCarousel({
@@ -106,168 +110,58 @@
 						
 					}); 
 				</script>
-				<div id="owl-demo5" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
-					<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 4560px; left: 0px; display: block; transition: all 800ms ease; transform: translate3d(-1140px, 0px, 0px);"><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits">
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products1.html"><img src="images/f2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">Women Sandal</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Women Sandal"> 
-									<input type="hidden" name="amount" value="20.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products.html"><img src="images/e4.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products.html">Digital Camera</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Digital Camera"> 
-									<input type="hidden" name="amount" value="100.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products4.html"><img src="images/s1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Roller Skates</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$180</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Roller Skates"> 
-									<input type="hidden" name="amount" value="180.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products1.html"><img src="images/f1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">T Shirt</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$10</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="T Shirt"> 
-									<input type="hidden" name="amount" value="10.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div>    
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products6.html"><img src="images/p1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Coffee Mug</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$14</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Coffee Mug"> 
-									<input type="hidden" name="amount" value="14.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products6.html"><img src="images/p2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Teddy bear</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Teddy bear"> 
-									<input type="hidden" name="amount" value="20.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products4.html"><img src="images/s2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Football</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$70</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Football"> 
-									<input type="hidden" name="amount" value="70.00">
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div></div><div class="owl-item" style="width: 285px;"><div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="products3.html"><img src="images/h1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products3.html">Wall Clock</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock"> 
-									<input type="hidden" name="amount" value="80.00"> 
-									<button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div></div></div></div>
-					  
-					
-					
-					
-					
-					 
-					 
-				<div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div></div>    
+				<div id="owl-demo5" class="owl-carousel">
+					@foreach($res as $k)
+                    <?php 
+                        $img = $k->gimg[0];
+                     ?>
+                     <!-- {{dump($img->gpic)}} -->
+                    <div class="item">
+                        <div class="glry-w3agile-grids agileits" style="height:300px;">
+                        	<div class="new-tag"><h6>20% <br> Off</h6></div>
+                            <a href="/home/list?id={{$k->tid}}"><img src="{{$img->gpic}}" alt="img"></a>
+                            <div class="view-caption agileits-w3layouts" style="">
+                                <h4 ><a href="/home/list?id={{$k->tid}}" style="overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 3;
+                                    -webkit-box-orient: vertical;">{{$k->gname}}</a></h4>
+                                <p style="overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;">{{$k->gdesc}}</p>
+                                <h5>${{$k->price}}</h5>
+                                <form action="" method="post">
+                                    <input type="hidden" name="gname" value="{{$k->gname}}" />
+                                    <input type="hidden" name="sum" value="1" />
+                                    <input type="hidden" name="company" value="{{$k->company}}" />
+                                    <input type="hidden" name="price" value="{{$k->price}}" />
+                                    <input type="hidden" name="gpic" value="{{$img->gpic}}" />
+
+                                    <button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>添加到购物车</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+				</div>    
 			</div>
 			<!-- //recommendations --> 
 			<!-- collapse-tabs -->
 			<div class="collpse tabs">
-				<h3 class="w3ls-title">About this item</h3> 
+				<h3 class="w3ls-title">关于这个产品</h3> 
 				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">
 							<h4 class="panel-title">
 								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									<i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> Description <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> 产品描述<span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							                     
-							</div>
+							<div class="panel-body">{{$data[0]->content}}</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
@@ -299,27 +193,15 @@ Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richa
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> reviews (5) <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> 全部评论<span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingFour">
-							<h4 class="panel-title">
-								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									<i class="fa fa-question-circle fa-icon" aria-hidden="true"></i> help <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
-								</a>
-							</h4>
-						</div>
-						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								<div style="height: 500px; overflow-y:scroll;"  >
+									<div style="height: 800px"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -346,3 +228,41 @@ Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richa
 		</div>
 	</div>
 @endsection
+
+@section('js')
+
+	<script type="text/javascript">
+		//加法  运算
+		$('.plus').click(function(){
+
+			//获取数量
+		var num = $(this).prev().val();
+
+		num++;
+		//加完之后让数量发生改变
+		$(this).prev().val(num);
+
+		})
+
+
+
+		//减法  运算
+		$('.minus').click(function(){
+
+			//获取数量
+		var minus = $(this).next().val();
+
+		minus--;
+		//加完之后让数量发生改变
+			if(minus <= 1 ){
+				minus = 1;
+			}
+				$(this).next().val(minus);
+			
+		})
+
+
+	</script>
+@endsection
+
+
