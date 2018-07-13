@@ -78,6 +78,22 @@ Route::resource('/admin/lunbo', 'admin\lunbo\LunBoController');
 
 
 
+//类别管理
+Route::resource('admin/type','admin\goods\GoodscategoryController');
+
+
+
+
+//商品管理
+
+Route::resource('admin/goods','admin\goods\GoodsAdminController');
+
+//轮播图
+Route::resource('/admin/lunbo', 'admin\lunbo\LunBoController');
+Route::get('/admin/lunbo/shangjia/{id}','admin\lunbo\LunBoController@shangjia');
+Route::get('/admin/lunbo/xiajia/{id}','admin\lunbo\LunBoController@xiajia');
+
+
 
 /**
  * 购物车
@@ -86,9 +102,15 @@ Route::resource('/admin/lunbo', 'admin\lunbo\LunBoController');
 Route::group([], function(){
 	//购物车显示
 	Route::any('/cart/index','home\goodscar\GoodscarhomeController@index');
+	//ajax
+	Route::any('/home/ajaxcart','home\goodscar\GoodscarhomeController@delete');
+	Route::any('/home/jia','home\goodscar\GoodscarhomeController@jia');
+	Route::any('/home/jian','home\goodscar\GoodscarhomeController@jian');
+	Route::any('/home/zongjia','home\goodscar\GoodscarhomeController@zongjia');
+	Route::any('/home/cun','home\goodscar\GoodscarhomeController@cun');
 	//详情页提交购物车
-    Route::get('/cart/{id}','home\goodscar\GoodscarhomeController@save'); 
-    
+    Route::get('/cart/{id}','home\goodscar\GoodscarhomeController@save');
+
 });
 /**
  * 结算
@@ -96,6 +118,9 @@ Route::group([], function(){
 Route::group([],function(){
 	//订单结算页
 	Route::any('/orders/index','home\account\AccountController@index');
+	Route::any('/orders/ajax','home\account\AccountController@ajax');
+	Route::any('/orders/dopath','home\account\AccountController@dopath');
+	Route::any('/orders/tijiao','home\account\AccountController@path');
 	//订单成功页
 	Route::any('/orders/jsy','home\account\AccountController@jsy');
 });
@@ -109,9 +134,13 @@ Route::group([],function(){
 	Route::any('/homeuser/index','home\usershome\UsersHomeController@index');
 	//个人资料
 	Route::any('/homeuser/firstuser','home\usershome\UsersHomeController@firstuser');
+	Route::any('/homeuser/dofirstuser/{id}','home\usershome\UsersHomeController@dofirstuser');
 	//个人地址
 	Route::any('/homeuser/path','home\usershome\UsersHomeController@path');
-	
+	Route::any('/homeuser/dopath','home\usershome\UsersHomeController@dopath');
+	Route::any('/homeuser/pathajax','home\usershome\UsersHomeController@pathajax');
+	Route::any('/homeuser/ajaxdelete','home\usershome\UsersHomeController@ajaxdelete');
+
 
 });
 
@@ -133,9 +162,8 @@ Route::group([],function(){
 
 /* / */
 Route::get('admin/index','admin\IndexController@index');
- // 友情链接资源路由
-
 Route::get('home/index','home\IndexController@index');
+
 
 
 
