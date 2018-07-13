@@ -190,7 +190,7 @@ class GoodscategoryController extends Controller
         }
 
         try {
-            $res = type::where('tid',$id)->delete();
+            $res = Type::where('tid',$id)->delete();
             //如果没有就可以删除
 
             if($res){
@@ -202,4 +202,7 @@ class GoodscategoryController extends Controller
                 return redirect('/admin/type')->with('success','2345');
         }
     }
+
+
+
 }

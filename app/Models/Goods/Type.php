@@ -32,11 +32,5 @@ class Type extends Model
 
 
 
-    /**
-     * 类别关联商品  一对多  添加
-     */
-    public function comments()
-    {
-        return $this->hasMany('App\Model\Goods\Goods','tid');
-    }
+    
 }

@@ -1,6 +1,7 @@
 @extends('extends.admin')
 
 @section('title', $title)
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 
@@ -51,7 +52,7 @@
 									$n = substr_count($k->path,',')-1;
 								?>
 
-                                <td>{{str_repeat('&nbsp;',$n*10)}}|--{{$k->tname}}</td>
+                                <td class="tname">{{str_repeat('&nbsp;',$n*10)}}|--{{$k->tname}}</td>
                                 <td class="am-hide-sm-only">{{$k->pid}}</td>
                                 <td class="am-hide-sm-only">{{$k->path}}</td>
                                 <td>
@@ -86,13 +87,9 @@
 @section('js')
 <script type="text/javascript">
     
-    /*setTimeout(function(){
-
-        $('.mws-form-message').remove();
-
-    },3000)*/
 
     $('.mws-form-message ').fadeOut(2000);
+
 
 </script>
 @endsection

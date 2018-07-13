@@ -2,13 +2,51 @@
 @section('title', '购物车')
  <link rel="stylesheet" href="/homes/css/reset.css">
          <link rel="stylesheet" href="/homes/css/carts.css">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+    .cart-empty{
+        height: 98px;
+        padding: 80px 0 120px;
+        color: #333;
+
+    }
+
+    .cart-empty .message{
+        height: 98px;
+        padding-left: 341px;
+        background: url(/images/core/no-login-icon.png) 250px 22px no-repeat;
+    }
+
+    .cart-empty .message .txt {
+        font-size: 14px;
+    }
+    .cart-empty .message li {
+        line-height: 38px;
+    }
+
+    ol, ul {
+        list-style: outside none none;
+    }
+
+    .ftx-05, .ftx05 {
+        color: #005ea7;
+    }
+   /* 
+    a {
+        color: #666;
+        text-decoration: none;
+        
+        font-size:12px;
+    }   */
+</style>
 @section('content')
 <!-- 购物车 -->
        
 <!-- 购物车 -->
 <!-- section('content') -->
-         <section class="cartMain">
-        <div class="cartMain_hd">
+      @if(count($goods) > 0)
+        <section class="cartMain">
+        <div class="cartMain_hd lamp203">
             <ul class="order_lists cartTop">
                 <li class="list_chk">
                     <!--所有商品全选-->
@@ -32,42 +70,46 @@
                     <input type="checkbox" id="shop_a" class="shopChoice">
                     <label for="shop_a" class="shop"></label>
                 </div>
+               
                 <div class="shop_name">
-                    店铺：<a href="javascript:;">搜猎人艺术生活</a>
+                    出产：<a href="javascript:;">中国</a>
                 </div>
+            
             </div>
             <div class="order_content">
+                
+                @foreach($goods as $k => $v)
                 <ul class="order_lists">
                     <li class="list_chk">
-                        <input type="checkbox" id="checkbox_2" class="son_check">
-                        <label for="checkbox_2"></label>
+                        <input type="checkbox" idsss='{{$v->cid}}' class="son_check">
+                        <label for="checkbox_2"></label>    
                     </li>
                     <li class="list_con">
-                        <div class="list_img"><a href="javascript:;"><img src="/homes/images/s1.png" alt=""></a></div>
-                        <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
+                        <div class="list_img"><a  href="javascript:;"><img src="{{$v->img}}" alt=""></a></div>
+                        <div class="list_text"><a  href="javascript:;">{{$v->gname}}</a></div>
                     </li>
                     <li class="list_info">
-                        <p>规格：默认</p>
-                        <p>尺寸：16*16*3(cm)</p>
+                        <p>{{$v->type}}</p>
+                        <p>尺寸：{{$v->type}}</p>
                     </li>
                     <li class="list_price">
-                        <p class="price">￥10</p>
+                        <p class="price">￥{{$v->price}}</p>
                     </li>
                     <li class="list_amount">
                         <div class="amount_box">
-                            <a href="javascript:;" class="reduce reSty">-</a>
-                            <input type="text" value="1" class="sum">
-                            <a href="javascript:;" class="plus">+</a>
+                            <a href="javascript:;" idss='{{$v->cid}}'   class="reduce reSty">-</a>
+                            <input type="text"  value="{{$v->sum}}" name="sum" class="sum">
+                            <a href="javascript:;" idss='{{$v->cid}}' class="plus">+</a>
                         </div>
                     </li>
                     <li class="list_sum">
-                        <p class="sum_price">￥10</p>
+                        <p class="sum_price">0.00</p>
                     </li>
                     <li class="list_op">
-                        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                        <p class="del"><a href="javascript:;" class="delBtn"  ids='{{$v->cid}}'>移除商品</a></p>
                     </li>
                 </ul>
-                
+                @endforeach
             </div>
         </div>
 
@@ -79,10 +121,31 @@
             <div class="bar-right">
                 <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
                 <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-                <div class="calBtn"><a href="/orders/index">结算</a></div>
+                <div class="calBtn"><a href="javascript:;" class=".jiesuan">结算</a></div>
             </div>
         </div>
+   
     </section>
+    @else
+                
+                <div class="cart-empty">
+                    <div class="message">
+                        <ul>
+                            <li class="txt">
+                                购物车空空的哦~，去看看心仪的商品吧~
+                            </li>
+                            <li class="mt10">
+                                <a href="/home/index" class="ftx-05">
+                                    去购物&gt;
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                
+                @endif
     <section class="model_bg"></section>
     <section class="my_model">
         <p class="title">删除宝贝<span class="closeModel">X</span></p>
@@ -92,6 +155,75 @@
     </section>
      <!-- <script src="/homes/js/jquery.min.js"></script> -->
     <script src="/homes/js/carts.js"></script>
+    <script type="text/javascript">
+        //删除
+
+       $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    $('.delBtn').click(function(){
+
+
+        // var rs = confirm('删除商品?');
+
+        // if(!rs) return;
+
+        //获取id
+        var id = $(this).attr('ids');
+        console.log(id);
+        var ts = $(this);
+
+
+        //发送ajax
+        $.post('/home/ajaxcart',{id:id},function(data){
+            if(data == '0'){
+
+                // ts.parents('tr').remove();
+
+                // $('.total').text('0.0');
+
+                // totals();
+                location.reload(true);   
+                
+           
+                $('.cartMain').html(`<div class="cart-empty">
+                    <div class="message">
+                        <ul>
+                            <li class="txt">
+                                购物车空空的哦~，去看看心仪的商品吧~
+                            </li>
+                            <li class="mt10">
+                                <a href="/home/index" class="ftx-05">
+                                    去购物&gt;
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>`);
+            }
+
+        });
+
+
+
+
+    })
+
+    // $('.calBtn').click(function(){
+    //     $()
+    // })
+
+   //      var mark = $('.mark ')
+
+   //      if(mark){
+   //        var sum = $('').parents('ul').eq(4).find('.sum').val();
+   //       console.log(sum);
+       
+   // }
+    </script>
 @endsection
 
 

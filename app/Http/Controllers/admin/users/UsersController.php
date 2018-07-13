@@ -53,7 +53,7 @@ class UsersController extends Controller
         // dump($request->all());
          //表单验证
          $this->validate($request, [
-        'username' => 'required|unique:users,username|regex:/^\w{1,12}$/',
+        'username' => 'required|unique:users,username|regex:/^\W{1,12}$/',
         'password'=>'required|regex:/^\S{1,12}$/',
         'upas'=>'same:password',
 
@@ -66,7 +66,7 @@ class UsersController extends Controller
         'username.unique'=>'名字不能重复'
         ]);
          $res = $request->except(['_token','upas','img']);
-         //检测是否有头像上传
+         //头像
         if($request->hasFile('img')){
 
             //设置名字
@@ -80,17 +80,14 @@ class UsersController extends Controller
         }
          //存数据表
         $res['img'] = '/uploads/'.$name.'.'.$suffix;
-
          // 密码加密
          $res['password']=Hash::make($request->input('password'));
-         // dd($res);
          $res['addtime'] = time();
           // dump($res);
          // 模型添加数据到数据库
+            // $res['uid'];
+            // \DB::
          $data = Users::create($res);
-
-        session(['simg'=>$data['img']]);
-
          if($data){
             return redirect('/admin/users')->with('info','添加成功');
          }else{
@@ -119,11 +116,8 @@ class UsersController extends Controller
      */
     public function edit($uid)
     {
-        
+        //
         $users=Users::where('uid',$uid)->first();
-      if($users->auth=='1'){
-        return redirect('admin/users')->with('success','修改不成功');
-      }
         return view('/admin/users/edit',['users'=>$users,'uid'=>$uid]);
     }
 
@@ -138,31 +132,15 @@ class UsersController extends Controller
     {
         //表单验证
           $this->validate($request, [
-        'username' => 'required|regex:/^\w{1,12}$/',
+        'username' => 'required|regex:/^\W{1,12}$/',
         ],[
         'username.required'=>'姓名不能为空',
         'username.regex'=>'姓名格式不正确',
         ]);
           // 提取部分参数
-        $res = $request->except('_token','_method','img');
-           //头像
-        if($request->hasFile('img')){
-
-            //设置名字
-            $name = str_random(10).time();
-
-            //获取后缀
-            $suffix = $request->file('img')->getClientOriginalExtension();
-
-            //移动
-            $request->file('img')->move('./uploads/',$name.'.'.$suffix);
-        }
-         //存数据表
-        $res['img'] = '/uploads/'.$name.'.'.$suffix;
-          
+        $res = $request->except('_token','_method');
         // 修改数据
         $data = Users::where('uid',$uid)->update($res);
-        // dump($data);die;
 
         if($data){
             return redirect('/admin/users')->with('success','修改成功');
@@ -178,20 +156,13 @@ class UsersController extends Controller
      */
     public function destroy($uid)
     {
-        // try{
-        //     $res = users::where('ui')
-        // }
 
        
-        $users = Users::where('uid',$uid)->first();
-        // $res = Users::where('uid',$uid)->delete();
-        if($users->auth=='1'){
-            return redirect('/admin/users')->with('success','删除不成功');
-        }
         $res = Users::where('uid',$uid)->delete();
-
         if($res){
             return redirect('/admin/users')->with('success','删除成功');
         }   
     }
+
+    // public function 
 }

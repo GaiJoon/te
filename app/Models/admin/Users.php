@@ -3,7 +3,7 @@
 namespace App\Models\admin;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\admin\Message;
 class Users extends Model
 {
     //
@@ -26,6 +26,9 @@ class Users extends Model
      */
      protected $fillable = ['username','password','auth','addtime','img'];
 
-    
+        public function user()
+        {
+            return $this->hasOne('Message','uid','uid');
+        }
  
 }

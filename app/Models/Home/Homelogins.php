@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Homelogins extends Model
 {
-    //
-      protected $table = 'homelogins';
-   	  protected $pk    = 'id';
-   
+		protected $table = 'homelogins';
+      protected $pk    = 'id';
 
-     /**
+       /**
      * 该模型是否被自动维护时间戳
      *
      * @var bool
@@ -24,7 +22,5 @@ class Homelogins extends Model
      * @var array
      *
      */
-     protected $fillable = ['lname','password','status','phone','email','token'];
-
-    
+     protected $fillable = ['lname','phone','password','email','status','token'];
 }

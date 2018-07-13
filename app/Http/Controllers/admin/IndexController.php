@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+
 class IndexController extends Controller
 {
     /**
@@ -12,9 +12,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-    	$res = DB::table('users')->get();
-
-    	return view('admin.index',['res'=>$res]);
+    	return view('admin.index');
     	
     }
 
