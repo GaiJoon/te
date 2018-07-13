@@ -42,7 +42,7 @@ class SigupController extends Controller
 
         // 密码加密
         $res['password']=Hash::make($request->input('password'));
-        $res['status']='1';
+        $res['status']='0';
         $res['token']=str_random(50);
 
         $data = Homelogins::create($res);
@@ -53,7 +53,6 @@ class SigupController extends Controller
 
         if($data){
 
-           
             //发送邮件
 
             // email.remind 邮件内容 html模板
@@ -82,10 +81,14 @@ class SigupController extends Controller
         $rs['status']='1';
         $info = homelogins::where('id',$id)->update($rs);
 
+
+
         if($info){
             return redirect('/home/login')->with('success','激活成功');
 
         }
     }
+
+
 
 }

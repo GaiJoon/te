@@ -102,7 +102,7 @@
        
         $('.mws-form-message').fadeOut(5000);
 
-        $post('')
+      
 </script>
 
 @endsection

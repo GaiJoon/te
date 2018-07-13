@@ -24,8 +24,11 @@ class LoginController extends Controller
 	    	$res=$request->except('_token');
 	    	// 带着条件去查找
 	    	$uname=Users::where('username',$res['username'])->first();
+
 	    	// dump($uname);die;
 	    	
+
+	    
 	    	// 获取用户名
 	    	if(!$uname){
 	    		return back()->with('error','用户名不正确');
@@ -38,10 +41,13 @@ class LoginController extends Controller
 	    	if(session('code')!=$res['code']){
 	    		return back()->with('error','验证码错误');
 	    	}
-    
 
-    	session(['username'=>$res['username']]);
+	
     	
+
+	    $img = $uname->img;
+	    session(['img'=>$img]);
+    	session(['username'=>$res['username']]);
     	return redirect('/admin/index');
 
     }
@@ -86,9 +92,5 @@ class LoginController extends Controller
 		// 跳转
 		return redirect('/admin/login/login');
 	}
-	// public function index()
-	// {
-	// 	$users = DB::table('users')->get();
-	// 	return view('/admin/login/login',['users'=>$users]);
-	// }
+	
 }

@@ -35,6 +35,9 @@ Route::get('/', function () {
 		 Route::any('/admin/captcha','admin\LoginController@captcha');
 		 // 广告路由
 		 Route::resource('/admin/poster','admin\poster\PosterController');
+		 // VIP路由
+		 // Route::resource('/home/vip','home\vip\VipController');
+
 
  });
 // 前台登陆注册路由组

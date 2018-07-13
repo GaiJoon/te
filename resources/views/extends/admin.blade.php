@@ -62,11 +62,11 @@
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="tpl-header-list-user-nick">{{session('username')}}</span><span class="tpl-header-list-user-ico"> <img src="/admins/assets/img/user01.png"></span>
+                        <span class="tpl-header-list-user-nick">{{session('username')}}</span><span class="tpl-header-list-user-ico"> <img src="{{session('img')}}"></span>
                     </a>
                     <ul class="am-dropdown-content">
                        
-                        <li><a href="/admin/logout"><span class="am-icon-power-off"></span> 退出</a></li>
+                        <li><a href="/admin/login/login"><span class="am-icon-power-off"></span> 退出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -202,6 +202,29 @@
                                 <a href="/admin/poster/">
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览广告</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                     <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>VIP管理</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                            <li>
+
+                                <a href="/admin/poster/create">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>添加VIP</span>
+                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+
+                                <a href="/admin/vip/">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>浏览VIP</span>
                                 </a>
                             </li>
                         </ul>

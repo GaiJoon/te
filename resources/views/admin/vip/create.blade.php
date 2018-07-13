@@ -1,6 +1,6 @@
 @extends('extends.admin')
 
-@section('title','vip添加')
+@section('title','VIP添加')
 
 
 @section('content')
@@ -8,7 +8,7 @@
 <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        <span class="am-icon-code"></span> 添加用户
+                        <span class="am-icon-code"></span> 添加VIP
                     </div>
                 </div>
                   @if (count($errors) > 0)

@@ -127,7 +127,7 @@
                         </ul>
                     </li>
                     <li class="dropdown head-dpdn">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i>今日特惠<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i>VIP<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="offers.html">现金返还优惠</a></li>
                             <li><a href="offers.html">产品折扣</a></li>

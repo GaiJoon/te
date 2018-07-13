@@ -80,6 +80,7 @@ class UsersController extends Controller
         }
          //存数据表
         $res['img'] = '/uploads/'.$name.'.'.$suffix;
+
          // 密码加密
          $res['password']=Hash::make($request->input('password'));
          // dd($res);
@@ -87,6 +88,9 @@ class UsersController extends Controller
           // dump($res);
          // 模型添加数据到数据库
          $data = Users::create($res);
+
+        session(['simg'=>$data['img']]);
+
          if($data){
             return redirect('/admin/users')->with('info','添加成功');
          }else{

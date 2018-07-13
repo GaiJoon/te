@@ -29,22 +29,26 @@ class LoginController extends Controller
         'password.regex'=>'密码格式不正确',
         'lname.unique'=>'名字不能重复'
         ]);
+        $res = $request->except('_token');
+
     	// 除参数以外
     	// $res = $request->all();
-    	$res = $request->except('_token');
+        // dd($res);
     	
     	
     	$uname = Homelogins::where('lname',$res['lname'])->first();
+        // dd($uname);
     	
-    	// 判断用户名是否一致
+    	// // 判断用户名是否一致
     	if(!$uname){
     		return back()->with('error','用户名不正确');
     	}
-    	// 判断密码
+    	// // 判断密码
     	if(!Hash::check($res['password'],$uname->password)){
-    		return back()->with('error','用户名不正确');
+    		return back()->with('error','用户密码不正确');
     	}
-    	session(['lname'=>$res['lname']]);
+     
+    	session(['lname'=>$uname->lname]);
     	return redirect('/home/index');
     }	
     
