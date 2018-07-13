@@ -107,19 +107,10 @@
                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
-
                                 <a href="/admin/users">
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览用户</span>
                                      <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
-
-
-
-                                <a href="/admin/users">
-
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>浏览用户</span>
-                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
 
                                 </a>
                             </li>
@@ -147,7 +138,8 @@
                                 <a href="/admin/type">
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览类别</span>
-                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+
+                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
 
                                 </a>
                             </li>
@@ -174,7 +166,7 @@
                                 <a href="/admin/goods">
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览商品</span>
-                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
 
                                 </a>
                             </li>
@@ -203,7 +195,9 @@
 
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览友情链接</span>
-                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+
+                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+
                                 </a>
                             </li>
                         </ul>
@@ -229,6 +223,7 @@
                                 <a href="/admin/lunbo">
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览轮播</span>
+
                                      <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
 
                                 </a>

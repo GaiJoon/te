@@ -65,9 +65,9 @@ class UsersHomeController extends Controller
       
          try{
           
-  $data = \DB::table('message')->update($user);
+              $data = \DB::table('message')->update($user);
             if($data){
-                return redirect('/home/homeuser/firstuser')->with('success','添加成功');
+                return redirect('/homeuser/firstuser')->with('success','添加成功');
             }
         }catch(\Exception $e){
 

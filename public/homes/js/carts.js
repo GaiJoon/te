@@ -13,18 +13,20 @@ $(function () {
     $allCheckbox.click(function () {
         if ($(this).is(':checked')) {
             var id = $(this).attr('idsss');
+
+
             console.log(id);
              $.post('/home/zongjia',{id:id},function(data){
-            // console.log(data); 
-           
+            console.log(data);
+
         })
-           
+              totalMoney();
+
             $(this).next('label').addClass('mark');
         } else {
             $(this).next('label').removeClass('mark')
-        } 
-        totalMoney();
-    });
+        }
+            });
 
     //===============================================全局全选与单个商品的关系================================
     $wholeChexbox.click(function () {
@@ -150,10 +152,10 @@ $(function () {
         }
         totalMoney();
 
-        
+
          var id = $(this).attr('idss');
          // console.log(id);
-         var sum = $priceTotal;
+         var sum = $count
          // console.log(sum);
 
         $.post('/home/jia',{sum:sum,id:id},function(data){
@@ -178,7 +180,7 @@ $(function () {
 
         var id = $(this).attr('idss');
          // console.log(id);
-         var sum = $priceTotal;
+         var sum = $count
          // console.log(sum);
 
         $.post('/home/jian',{sum:sum,id:id},function(data){
@@ -255,7 +257,7 @@ $(function () {
         $('.piece_num').html(total_count);
 
 
-         $.post('/home/zongjia',{zongjia:total_money},function(data){
+         $.post('/home/zongjia',{'zongjia':total_money,'num':total_count},function(data){
             console.log(data);
         })
         // console.log(total_money,total_count);
@@ -264,6 +266,7 @@ $(function () {
             if(!calBtn.hasClass('btn_sty')){
                 calBtn.addClass('btn_sty');
                 calBtn.attr('href','/orders/index')
+                // $.post('/orders/delajax',{})
             }
         }else{
             if(calBtn.hasClass('btn_sty')){
@@ -274,4 +277,3 @@ $(function () {
 
 
 });
-

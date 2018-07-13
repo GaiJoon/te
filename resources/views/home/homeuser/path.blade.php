@@ -49,7 +49,7 @@
 										<span class="new-option-r"  ids="{{$v->pid}}""><i class="am-icon-check-circle"></i>默认地址</span>
 										<p class="new-tit new-p-re">
 											<span class="new-txt"">{{$v->pname}}</span>
-											<span class="new-txt-rd2">{{$v->phone}}</span>
+											<span lass="new-txt-rd2">{{$v->phone}}</span>
 										</p>
 										<div class="new-mu_l2a new-p-re">
 											<p class="new-mu_l2cw">
@@ -65,9 +65,10 @@
 											<a href="javascript:void(0);"><i class="am-icon-trash" idss="{{$v->pid}}"></i>删除</a>
 										</div>
 									</li>	
-								</ul>
+								
 								@endforeach
-				@else
+							</ul>
+						@else
 						<span class="qing">请添加地址</span>
 					
 					@endif
@@ -102,7 +103,7 @@
 								    </div>
 								@endif
 								<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;"> 
-									<form class="am-form am-form-horizontal" action="/homeuser/dopath" method="post">
+									<form class="am-form am-form-horizontal" action="/orders/dopath" method="post">
 											{{csrf_field()}}
 										<div class="am-form-group">
 											<label for="user-name" class="am-form-label">收货人</label>
@@ -217,6 +218,8 @@
 							})
 
 						})
+
+				
 
 					</script>
 
