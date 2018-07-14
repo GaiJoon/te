@@ -88,7 +88,7 @@
             </div>
             <!-- Left-Button -->
             <a class="left carousel-control kb_control_left" href="#kb" role="button" data-slide="prev">
-				<span class="fa fa-angle-left kb_icons" aria-hidden="true"></span>
+                <span class="fa fa-angle-left kb_icons" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <!-- Right-Button -->
@@ -107,25 +107,25 @@
                 <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class=" nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">
-							<i class="fa fa-laptop" aria-hidden="true"></i> 
-							<h5>Electronics</h5>
-						</a></li>
+                            <i class="fa fa-laptop" aria-hidden="true"></i> 
+                            <h5>Electronics</h5>
+                        </a></li>
                         <li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab"> 
-							<i class="fa fa-female" aria-hidden="true"></i>
-							<h5>Fashion</h5>
-						</a></li>
+                            <i class="fa fa-female" aria-hidden="true"></i>
+                            <h5>Fashion</h5>
+                        </a></li>
                         <li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab"> 
-							<i class="fa fa-gift" aria-hidden="true"></i>
-							<h5>Photo & Gifts</h5>
-						</a></li>
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <h5>Photo & Gifts</h5>
+                        </a></li>
                         <li role="presentation"><a href="#decor" role="tab" id="decor-tab" data-toggle="tab"> 
-							<i class="fa fa-home" aria-hidden="true"></i>
-							<h5>Home Decor</h5>
-						</a></li>
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <h5>Home Decor</h5>
+                        </a></li>
                         <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab"> 
-							<i class="fa fa-motorcycle" aria-hidden="true"></i>
-							<h5>Sports</h5>
-						</a></li>
+                            <i class="fa fa-motorcycle" aria-hidden="true"></i>
+                            <h5>Sports</h5>
+                        </a></li>
                     </ul>
                     <div class="clearfix"> </div>
                     <h3 class="w3ls-title">发现好货</h3>
@@ -413,26 +413,19 @@
     <div class="add-products">
         <div class="container">
             <div class="add-products-row">
-                <div class="w3ls-add-grids">
-                    <a href="products1.html">
-                        <h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
-                        <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+            @foreach($poster as $k=>$v)
+
+
+                <div class="pull-left" style=" width:370px; height:251px; margin:5px;">
+                    <a href="{{$v->imgurl}}">
+                       <img src="{{$v->img}}" alt="" style="width:370px; height:251px; ">
                     </a>
                 </div>
-                <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                    <a href="products1.html">
-                        <h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>
-                        <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                    </a>
-                </div>
-                <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                    <a href="products.html">
-                        <h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>
-                        <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                    </a>
-                </div>
-                <div class="clerfix"> </div>
-            </div>
+                
+            @endforeach
+            <div class="clerfix"> </div>
+
+          </div>
         </div>
     </div>
     <!-- //add-products -->

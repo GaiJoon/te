@@ -5,6 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 use App\Models\Goods\Type;
 use App\Models\Goods\Goods;
 use App\Models\Goods\Goodspic;
@@ -22,7 +23,9 @@ class IndexController extends Controller
 
     	$data = Type::getsubcate(0);
     	// $goods = Goods::with('gimg')->get();
-
+         $res = DB::table('friend')->get();
+         // dump($res);
+        $poster = DB::table('poster')->get();
 
 
     	$goods = Goods::with('gimg')
@@ -35,7 +38,27 @@ class IndexController extends Controller
     	// dump($data);	
     	return view('home.index',[
     		'data' =>$data,	
-    		'goods'=>$goods
+    		'goods'=>$goods,
+            'res'=>$res,
+            'poster'=>$poster
     	]);
     }
+
+
+
+    //  public function poster(Request $request)
+    // {
+
+    //      $res = DB::table('friend')->get();
+
+    //     $poster = DB::table('poster')->get();
+
+
+       
+    //     return view('home.index',[
+    //         'res'=>$res,
+    //         'poster'=>$poster
+    //     ]);
+    // }
+
 }

@@ -50,10 +50,10 @@
 
     <div class="tpl-block">
                     <form action="/admin/goods" method='get'  class="form-horizontal" >
-        	               <div class="col-xs-3">
+                           <div class="col-xs-3">
                                     <input type="text" name='search'  class="form-control" placeholder="搜索商品名..." >
                            </div>
-        	                <button class='btn btn-success'>搜索</button>
+                            <button class='btn btn-success'>搜索</button>
                     </form>
         <div class="am-g">
             <div class="am-u-sm-12">
@@ -77,7 +77,7 @@
                         </thead>
                         <tbody>
                             @foreach($data as $k => $v)
-                            	<tr>
+                                <tr>
                                     <td  title="{{$v->id}}">{{$v->id}}</td>
                                     <td  title="{{$v->tid}}">{{$v->tid}}</td>
                                     <td  title="{{$v->gname}}">{{$v->gname}}</td>
@@ -171,48 +171,6 @@
             })
         }
     }
-
-
-
-
-    // $('.sjia').click(function(){
-        
-
-    //     // alert($);
-
-    //     //获取id  和 value值
-    //     var status = $(this).attr('value');
-    //     var id = $(this).attr('ids');
-    //     var ts = $('#'+id);
-
-    //     if(status == 1){
-    //         var aa = '你确定上架吗';
-    //     }else{
-    //         var aa = '你确定下架吗';
-    //     }
-
-    //     var vv = confirm(aa);
-    //     if(vv){
-    //     $.post('/admin/ajax',{id:id,status:status},function(data){
-
-    //     if(data == '1'){
-    //         // alert(12345);
-    //         ts.attr('class','sjia btn btn-danger ').text('下架');
-    //         ts.val('1');
-    //     }else if(data == '0'){
-
-    //         // alert('asdf');
-    //         ts.attr('class','sjia btn btn-success').text('上架');
-    //         ts.val('0');
-
-    //     }else{
-    //         alert('修改失败');
-    //     }
-
-    //     })
-
-    //     }
-    // })
 
 
         

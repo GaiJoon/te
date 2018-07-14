@@ -68,6 +68,7 @@
                     <ul class="am-dropdown-content">
                        
                         <li><a href="/admin/logout"><span class="am-icon-power-off"></span> 退出</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -93,29 +94,52 @@
                  
 
 
+
+                        <li class="tpl-left-nav-item">
+                            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                <i class="am-icon-wpforms"></i>
+                                <span>用户管理</span>
+                                <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                            </a>
+                            <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                                <li>
+                                    <a href="/admin/users/create">
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>添加用户</span>
+                                        <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                    </a>
+
+                                    <a href="/admin/users">
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>浏览用户</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>用户管理</span>
+                            <span>广告轮播管理</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: none;">
                             <li>
-                                <a href="/admin/users/create">
+
+
+                                <a href="/admin/lunbo/create">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>添加用户</span>
+                                    <span>添加轮播</span>
                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
-                                <a href="/admin/users">
+                                <a href="/admin/lunbo/index">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>浏览用户</span>
-                                </a>
+                                    <span>浏览轮播</span>
                             </li>
                         </ul>
-                    </li>
-
-
+                    
 
 
                     <li class="tpl-left-nav-item">
@@ -140,7 +164,6 @@
                             </li>
                         </ul>
                     </li>
-
 
 
                      <li class="tpl-left-nav-item">
@@ -170,34 +193,12 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>评论管理</span>
-                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
-                        </a>
-                        <ul class="tpl-left-nav-sub-menu" style="display: none;">
-                            <li>
-
-                                <a href="/admin/goods/create">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>添加评论</span>
-                                    <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
-                                </a>
-
-                                <a href="/admin/goods">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>浏览评论</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="tpl-left-nav-item">
-                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-wpforms"></i>
                             <span>友情链接管理</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: none;">
                             <li>
+
 
                                 <a href="/admin/friend/create">
                                     <i class="am-icon-angle-right"></i>
@@ -205,10 +206,7 @@
                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
-
-                                
                                 <a href="/admin/friend">
-
                                     <i class="am-icon-angle-right"></i>
                                     <span>浏览友情链接</span>
                                 </a>
@@ -217,31 +215,29 @@
                     </li>
 
 
-                    
-                    <li class="tpl-left-nav-item">
+                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>广告轮播管理</span>
+                            <span>广告管理</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: none;">
                             <li>
 
-                                <a href="/admin/lunbo/create">
+                                <a href="/admin/poster/create">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>添加轮播</span>
+                                    <span>添加广告</span>
                                     <i class="tpl-left-nav-content-ico am-fr am-margin-right"></i>
                                 </a>
 
-                                <a href="form-line.html">
+                                <a href="/admin/poster/index">
                                     <i class="am-icon-angle-right"></i>
-                                    <span>浏览轮播</span>
+                                    <span>浏览广告</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    
-                  
+
                 </ul>
             </div>
         </div>
@@ -265,6 +261,7 @@
 
 
     <script src="/admins/assets/js/jquery.min.js"></script>
+
     <script src="/admins/assets/js/amazeui.min.js"></script>
     <script src="/admins/assets/js/iscroll.js"></script>
     <script src="/admins/assets/js/app.js"></script>

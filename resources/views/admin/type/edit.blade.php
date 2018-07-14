@@ -29,6 +29,7 @@
                     <div class="am-g tpl-amazeui-form">
                         <div class="am-u-sm-12 am-u-md-9">
                             <form class="am-form am-form-horizontal" action="/admin/type/{{$info->id}}" method="post">
+
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">父级分类</label>
                                     <div class="am-u-sm-9">
@@ -39,6 +40,7 @@
                                                         $n = substr_count($v->path,',');
                                                     ?>
                                                         <option value="{{$v['id']}}" @if($info->pid == $v->id) selected @endif >{{str_repeat('&nbsp;',$n*7)}}|--{{$v['tname']}}</option>
+
                                                 @endforeach
                                         </select>
                                     </div>

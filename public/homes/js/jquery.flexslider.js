@@ -111,7 +111,7 @@
         if (slider.vars.mousewheel) {
           slider.bind('mousewheel', function(event, delta, deltaX, deltaY) {
             event.preventDefault();
-            var target = (delta < 1) ? slider.getTarget('next') : slider.getTarget('prev');
+            var target = (delta < 0) ? slider.getTarget('next') : slider.getTarget('prev');
             slider.flexAnimate(target, slider.vars.pauseOnAction);
           });
         }
@@ -153,6 +153,7 @@
         setTimeout(function(){
           slider.vars.start(slider);
         }, 2000);
+
       },
       asNav: {
         setup: function() {

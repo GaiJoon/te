@@ -1,28 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\admin\goods;
+namespace App\Http\Controllers\home\poster;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
-use App\Models\Goods\Type;
-use App\Models\Goods\Goods;
-use App\Models\Goods\Goodspic;
-
-
 use DB;
 
-class GoodsCheapController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        echo 2345;
+        //
+        // $res = DB::table('poster')->get();
+        // dd($res);
+        // return view('/home/index',['poster'=>$poster]);
     }
 
     /**
@@ -54,13 +50,7 @@ class GoodsCheapController extends Controller
      */
     public function show($id)
     {
-        // return $id;
-
-
-        $cheap = Goods::with('gimg')->where('id',$id)->first();
-
-        
-    
+        //
     }
 
     /**

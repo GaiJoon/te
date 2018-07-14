@@ -39,6 +39,7 @@
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
             autoPlay: 4000, //Set AutoPlay to 3 seconds 
+
             items: 4,
             itemsDesktop: [640, 5],
             itemsDesktopSmall: [480, 2],
@@ -113,6 +114,7 @@
     <div class="header">
         <div class="w3ls-header">
             <!--header-one-->
+
             <div class="w3ls-header-left">
                 <p><a href="#"></a></p>
             </div>
@@ -121,13 +123,15 @@
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>我的账户<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.html">登录 </a></li>
-                            <li><a href="signup.html">注册</a></li>
+
+                            <li><a href="/home/login">登录 </a></li>
+                            <li><a href="/home/sigup">注册</a></li>
                             <li><a href="/homeuser/index">个人中心</a></li>
                         </ul>
                     </li>
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i>今日特惠<span class="caret"></span></a>
+c
                         <ul class="dropdown-menu">
                             <li><a href="offers.html">现金返还优惠</a></li>
                             <li><a href="offers.html">产品折扣</a></li>
@@ -143,6 +147,7 @@
                 </ul>
             </div>
             <div class="clearfix"> </div>
+
         </div>
         <div class="header-two">
             <!-- header-two -->
@@ -154,6 +159,7 @@
                 <div class="header-search">
                     <form action="/home/list" method="get">
                         <input type="search" name="search" placeholder="你想要的货物....." required="">
+
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                             <i class="fa fa-search" aria-hidden="true"> </i>
                         </button>
@@ -168,6 +174,7 @@
 
 
                                 {{csrf_field()}}
+
                             <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
                         </form>
                     </div>
@@ -176,7 +183,6 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-        <!-- //header-two -->
 
 @section('content')
 
@@ -259,20 +265,19 @@
                         </ul>
                     </div>
                     <div class="col-md-4 footer-grids">
-                        <h3>支付方式</h3>
+
+                        <h3>友情链接</h3>
                         <ul>
-                            <li><i class="fa fa-laptop" aria-hidden="true"></i> 网上银行</li>
-                            <li><i class="fa fa-money" aria-hidden="true"></i> 货到付款</li>
-                            <li><i class="fa fa-pie-chart" aria-hidden="true"></i>EML转换</li>
-                            <li><i class="fa fa-gift" aria-hidden="true"></i> 电子礼卷</li>
-                            <li><i class="fa fa-credit-card" aria-hidden="true"></i> 借记卡/信用卡</li>
+                             @foreach($res as $k=>$v)
+                            <li><i class="fa fa-laptop" aria-hidden="true"><a href="{{$v->url}}"></i>{{$v->fname}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
-
+                   
                     <div class="clearfix"></div>
                 </div>
-                
-<!-- subscribe -->
+              
+
    
            
           

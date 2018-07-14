@@ -101,6 +101,8 @@
 <script type="text/javascript">
        
         $('.mws-form-message').fadeOut(5000);
+
+      
 </script>
 
 @endsection

@@ -56,18 +56,18 @@
 
                         <div class="am-u-sm-12 am-u-md-9">
                             <form class="am-form am-form-horizontal" action="/admin/goods" method="post" enctype='multipart/form-data'>
-                            	 <div class="am-form-group">
+                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">商品分类</label>
                                     <div class="am-u-sm-9">
                                         <select name="id">
-                                        	<option value="0">顶级分类</option>
-												@foreach ($res as $k=>$v)
+                                            <option value="0">顶级分类</option>
+                                                @foreach ($res as $k=>$v)
 
-														<?php 
-															$n = substr_count($v->path,',')-1;
-														?>
-														<option  value="{{$v->id}}">{{str_repeat('&nbsp;',$n*7)}}|--{{$v->tname}}</option>
-												@endforeach
+                                                        <?php 
+                                                            $n = substr_count($v->path,',')-1;
+                                                        ?>
+                                                        <option  value="{{$v->id}}">{{str_repeat('&nbsp;',$n*7)}}|--{{$v->tname}}</option>
+                                                @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -131,11 +131,11 @@
 
                                 <!-- <script> -->
                     
-				                    <!-- //实例化编辑器
-				                    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-				                    var ue = UE.getEditor('editor');
+                                    <!-- //实例化编辑器
+                                    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                                    var ue = UE.getEditor('editor');
  -->
-				                <!-- </script> -->
+                                <!-- </script> -->
 
                                 <div class="am-form-group">
                                     <label for="user-phone" class="am-u-sm-3 am-form-label">商品描述</label>
@@ -145,12 +145,12 @@
                                     </div>
                                     
                                 </div>
-								
-								<div class="am-form-group">
+                                
+                                <div class="am-form-group">
                                     <label for="user-QQ" class="am-u-sm-3 am-form-label">商品状态</label>
                                     <div class="am-u-sm-9">
-				    						<input type="radio" name='status' value='1' checked='checked'> <label>上架</label>
-				    						<input type="radio" name='status' value='0'> <label>下架</label>
+                                            <input type="radio" name='status' value='1' checked='checked'> <label>上架</label>
+                                            <input type="radio" name='status' value='0'> <label>下架</label>
                                     </div>
                                 </div>
 

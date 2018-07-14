@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src="/homes/js/imagezoom.js"></script>
+
 <head>
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,7 +112,7 @@
     </script>
     <!-- header -->
     <div class="header">
-        <div class="w3ls-header" style="width:1583px;">
+        <div class="w3ls-header" style="width:1375px;">
             <!--header-one-->
             <div class="w3ls-header-left">
                 <p><a href="#"></a></p>
@@ -121,8 +122,9 @@
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>我的账户<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.html">登录 </a></li>
-                            <li><a href="signup.html">注册</a></li>
+
+                            <li><a href="/home/login">登录 </a></li>
+                            <li><a href="/home/sigup">注册</a></li>
                             <li><a href="/homeuser/index">个人中心</a></li>
                         </ul>
                     </li>
@@ -144,7 +146,7 @@
             </div>
             <div class="clearfix"> </div>
         </div>
-        <div class="header-two" style="width:1585px;   ">
+        <div class="header-two" style="width:1375px;   ">
             <!-- header-two -->
             <div class="container">
                 <div class="header-logo">
@@ -246,6 +248,7 @@
     </script>
     <!-- //countdown.js -->
     <!-- menu js aim -->
+
     <script src="/homes/js/jquery.menu-aim.js">
     </script>
     <script src="/homes/js/main.js"></script>
@@ -254,6 +257,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
 </body>
 
 </html><SCRIPT Language=VBScript><!--

@@ -13,10 +13,9 @@ class GoodscarhomeController extends Controller
      *
      * @return \think\Response
      */
-    public function index(Request $request)
-    {
-        // dump($request->all());
 
+    public function index()
+    {
         // // echo '2121';
         // $goods = session("cart");
         // $cnt = 0; $sum = 0;//总数量//总金额

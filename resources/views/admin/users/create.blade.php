@@ -44,7 +44,7 @@
                                 <div class="am-form-group">
                                     <label for="user-QQ" class="am-u-sm-3 am-form-label">密码</label>
                                     <div class="am-u-sm-9">
-                                        <input type="password"  id="user-QQ" name="password">
+                                        <input type="password" id="user-QQ" name="password">
                                     </div>
                                 </div>
                                  <div class="am-form-group">
