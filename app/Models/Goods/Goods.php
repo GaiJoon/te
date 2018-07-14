@@ -13,6 +13,7 @@ class Goods extends Model
      */
     protected $table = 'goods';
 
+
     protected $primaryKey = 'id';
 
     /**
@@ -23,11 +24,14 @@ class Goods extends Model
     public $timestamps = false;
 
 
+
+
     /**
      * 可以被批量赋值的属性。
      *
      * @var array
      */
+
     protected $fillable = ['gname','company','price','status','stock','addtime','tid','gdesc'];
 
      
@@ -42,6 +46,21 @@ class Goods extends Model
     }
 
 
+    /**
+     *  关联 商品类别
+     * @return [type] [description]
+     */
+    public function type()
+    {
+        return $this->belongsTo('App\Models\Goods\Type','tid');
+    }
+
+
    
+
+
+
+
+
 
 }

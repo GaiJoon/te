@@ -18,7 +18,7 @@ class GoodscategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $res = Type::select(DB::raw('*,concat(path,tid) as paths'))->
+        $res = Type::select(DB::raw('*,concat(path,id) as paths'))->
                 orderBy('paths')->
                 where('tname','like','%'.$request->input('search').'%')->
                 get();
@@ -38,7 +38,7 @@ class GoodscategoryController extends Controller
      */
     public function create()
     {
-        $res = DB::select('select * from type order by concat(path,tid)');
+        $res = DB::select('select * from type order by concat(path,id)');
 
         // echo '<pre>';
         // dd($res[6]->pid);
@@ -68,7 +68,7 @@ class GoodscategoryController extends Controller
         
         $pid = $_POST['pid'];
 
-        $data =  DB::table('type')->where('tid', $pid)->first();
+        $data =  DB::table('type')->where('id', $pid)->first();
          if ($pid==0) {
             $res['path'] = '0,';
         } else {
@@ -119,7 +119,7 @@ class GoodscategoryController extends Controller
 
         $info = Type::find($id);
 
-        $res = Type::select(DB::raw('*,concat(path,tid) as paths'))->
+        $res = Type::select(DB::raw('*,concat(path,id) as paths'))->
                 orderBy('paths')->
                 get(); 
 
@@ -156,7 +156,7 @@ class GoodscategoryController extends Controller
 
 
         try{
-            $data = Type::where('tid',$id)->update($res);
+            $data = Type::where('id',$id)->update($res);
 
             if($data){
                 return redirect('/admin/type')->with('success','修改成功');
@@ -190,7 +190,7 @@ class GoodscategoryController extends Controller
         }
 
         try {
-            $res = Type::where('tid',$id)->delete();
+            $res = Type::where('id',$id)->delete();
             //如果没有就可以删除
 
             if($res){

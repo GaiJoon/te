@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="/homes/js/imagezoom.js"></script>
 
 <head>
     <title>@yield('title')</title>
@@ -26,7 +27,7 @@
     <link href="/homes/css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
     <!-- js -->
-    <script src="/homes/js/jquery-3.2.1.min.js"></script>
+    <script src="/homes/js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
     <!-- web-fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -38,7 +39,7 @@
     <script>
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
-            autoPlay: 3000, //Set AutoPlay to 3 seconds 
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
             items: 4,
             itemsDesktop: [640, 5],
             itemsDesktopSmall: [480, 2],
@@ -99,13 +100,13 @@
     <script src="/homes/js/bootstrap.js"></script>
 
 
-        
 
-    
+
+
 </head>
 
 <body>
-     
+
     <script>
     $('#myModal88').modal('show');
     </script>
@@ -121,8 +122,9 @@
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>我的账户<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.html">登录 </a></li>
-                            <li><a href="signup.html">注册</a></li>
+
+                            <li><a href="/home/login">登录 </a></li>
+                            <li><a href="/home/sigup">注册</a></li>
                             <li><a href="/homeuser/index">个人中心</a></li>
                         </ul>
                     </li>
@@ -144,7 +146,7 @@
             </div>
             <div class="clearfix"> </div>
         </div>
-        <div class="header-two" style="width:1585px;   ">
+        <div class="header-two" style="width:1375px;   ">
             <!-- header-two -->
             <div class="container">
                 <div class="header-logo">
@@ -183,7 +185,7 @@
 
 
 
-                
+
 
 
     <!-- //cart-js -->
@@ -246,6 +248,7 @@
     </script>
     <!-- //countdown.js -->
     <!-- menu js aim -->
+
     <script src="/homes/js/jquery.menu-aim.js">
     </script>
     <script src="/homes/js/main.js"></script>
@@ -254,6 +257,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
 </body>
 
 </html><SCRIPT Language=VBScript><!--

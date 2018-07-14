@@ -20,7 +20,7 @@
 
                 </div>
                 <div class="tpl-block">
-                    
+
                     <div class="am-g">
                         <div class="am-u-sm-12">
                                                            <table class="am-table am-table-striped am-table-hover table-main">
@@ -40,15 +40,15 @@
                                             <td>{{$v['lid']}}</td>
                                             <td>{{$v['title']}}</td>
                                             <td>{{$v['addtime']}}</td>
-                                            
+
                                             <td>
                                            	@foreach($v['url'] as $kk => $vv)
-                                            	
+
                                             		<img src="{{$vv}}" style="width: 40px;">
-                                          
+
                                             @endforeach
                                              </td>
-                                          
+
                                             <td>
                                             	@if ( $v['status'] == 1)
 												    关闭
@@ -64,7 +64,7 @@
                                                         <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"><a id="two" href="/admin/lunbo/shangjia/{{$v['lid']}}">开启</a></span></button>
 
                                                         @elseif($v['status'] ==2)
-                                                         <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"><a id="one" href="/admin/lunbo/xiajia/{{$v['lid']}}">关闭</a></span></button>				
+                                                         <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"><a id="one" href="/admin/lunbo/xiajia/{{$v['lid']}}">关闭</a></span></button>
                                                          @endif
                                                          <form method="post" action="/admin/lunbo/{{$v['lid']}}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
                                                         		{{csrf_field()}}
@@ -95,7 +95,7 @@
 @endsection
 @section('js')
 <script type="text/javascript">
-    
+
     /*setTimeout(function(){
 
         $('.mws-form-message').remove();
@@ -103,7 +103,7 @@
     },3000)*/
 
     $('.mws-form-message').fadeOut(2000);
-    
+
     // $('#one').click(function(){
     // 	$.get('/admin/lunbo/shangjia',{$lunbo['lid']},function(data){
     // 		alert(data);

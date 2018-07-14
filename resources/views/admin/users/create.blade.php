@@ -44,13 +44,13 @@
                                 <div class="am-form-group">
                                     <label for="user-QQ" class="am-u-sm-3 am-form-label">密码</label>
                                     <div class="am-u-sm-9">
-                                        <input type="password" pattern="[0-9]*" id="user-QQ" name="password">
+                                        <input type="password" id="user-QQ" name="password">
                                     </div>
                                 </div>
                                  <div class="am-form-group">
                                     <label for="user-QQ" class="am-u-sm-3 am-form-label">确认密码</label>
                                     <div class="am-u-sm-9">
-                                        <input type="password" pattern="[0-9]*" id="user-QQ" name="upas">
+                                        <input type="password" id="user-QQ" name="upas">
                                     </div>
                                 </div>
 

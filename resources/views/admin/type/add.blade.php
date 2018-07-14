@@ -40,7 +40,8 @@
 														<?php 
 															$n = substr_count($v->path,',')-1;
 														?>
-														<option  value="{{$v->tid}}">{{str_repeat('&nbsp;',$n*7)}}|--{{$v->tname}}</option>
+
+														<option  value="{{$v->id}}">{{str_repeat('&nbsp;',$n*7)}}|--{{$v->tname}}</option>
 
 												@endforeach
                                         </select>

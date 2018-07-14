@@ -38,7 +38,8 @@
     <script>
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
-            autoPlay: 3000, //Set AutoPlay to 3 seconds 
+            autoPlay: 4000, //Set AutoPlay to 3 seconds
+
             items: 4,
             itemsDesktop: [640, 5],
             itemsDesktopSmall: [480, 2],
@@ -101,11 +102,11 @@
 
 
 
-    
+
 </head>
 
 <body>
-     
+
     <script>
     $('#myModal88').modal('show');
     </script>
@@ -113,6 +114,7 @@
     <div class="header">
         <div class="w3ls-header">
             <!--header-one-->
+
             <div class="w3ls-header-left">
                 <p><a href="#"></a></p>
             </div>
@@ -121,13 +123,15 @@
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>我的账户<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.html">登录 </a></li>
-                            <li><a href="signup.html">注册</a></li>
+
+                            <li><a href="/home/login">登录 </a></li>
+                            <li><a href="/home/sigup">注册</a></li>
                             <li><a href="/homeuser/index">个人中心</a></li>
                         </ul>
                     </li>
                     <li class="dropdown head-dpdn">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i>今日特惠<span class="caret"></span></a>
+c
                         <ul class="dropdown-menu">
                             <li><a href="offers.html">现金返还优惠</a></li>
                             <li><a href="offers.html">产品折扣</a></li>
@@ -143,6 +147,7 @@
                 </ul>
             </div>
             <div class="clearfix"> </div>
+
         </div>
         <div class="header-two">
             <!-- header-two -->
@@ -152,8 +157,9 @@
                     <h6>你的商店 . 你的地方</h6>
                 </div>
                 <div class="header-search">
-                    <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="你想要的货物....." required="">
+                    <form action="/home/list" method="get">
+                        <input type="search" name="search" placeholder="你想要的货物....." required="">
+
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                             <i class="fa fa-search" aria-hidden="true"> </i>
                         </button>
@@ -165,9 +171,10 @@
                     </div>
                     <div class="cart">
                         <form action="/cart/index" method="post" class="last">
+
+
                                 {{csrf_field()}}
-                            <!-- <input type="hidden" name="cmd" value="_cart" /> -->
-                            <!-- <input type="hidden" name="display" value="1" /> -->
+
                             <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
                         </form>
                     </div>
@@ -176,7 +183,7 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-        <!-- //header-two -->
+
 @section('content')
 
 @show
@@ -190,8 +197,8 @@
                         <i class="fa fa-truck" aria-hidden="true"></i>
                     </div>
                     <div class="ftr-top-right">
-                        <h4>急速送货</h4>
-                        <p>全国以支持大部分地区,你只要坐在家里稍稍等待.[特殊地区可能晚到(谅解)]</p>
+                        <h4>快速送货</h4>
+                        <p>你只要坐在家里稍稍等待,货物就送到您家,</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -201,7 +208,7 @@
                     </div>
                     <div class="ftr-top-right">
                         <h4>客户关怀</h4>
-                        <p>如果您购买的商品去商品描述不符 支持七天无理由退货,保障最佳购物舒适感</p>
+                        <p> 七天无理由退货,保障最佳购物舒适感</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -211,7 +218,7 @@
                     </div>
                     <div class="ftr-top-right">
                         <h4>高品质</h4>
-                        <p> 我们竭尽全力为您提供最优质的服务 :) </p>
+                        <p> 官方产品 质量保证 假一赔十</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -258,23 +265,22 @@
                         </ul>
                     </div>
                     <div class="col-md-4 footer-grids">
-                        <h3>支付方式</h3>
+
+                        <h3>友情链接</h3>
                         <ul>
-                            <li><i class="fa fa-laptop" aria-hidden="true"></i> 网上银行</li>
-                            <li><i class="fa fa-money" aria-hidden="true"></i> 货到付款</li>
-                            <li><i class="fa fa-pie-chart" aria-hidden="true"></i>EML转换</li>
-                            <li><i class="fa fa-gift" aria-hidden="true"></i> 电子礼卷</li>
-                            <li><i class="fa fa-credit-card" aria-hidden="true"></i> 借记卡/信用卡</li>
+                             @foreach($res as $k=>$v)
+                            <li><i class="fa fa-laptop" aria-hidden="true"><a href="{{$v->url}}"></i>{{$v->fname}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
 
                     <div class="clearfix"></div>
                 </div>
-                
-<!-- subscribe -->
-   
-           
-          
+
+
+
+
+
              <div class="col-md-3  social-icons" style="float: right;position: relative; bottom: -38px;">
                 <h4 style="color:white; ">保持联系</h4>
                 <ul>
@@ -300,7 +306,7 @@
 
         </div>
     </div>
-     
+
     <!-- //footer -->
     <div class="copy-right">
         <div class="container">
@@ -393,6 +399,12 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
+
+@section('js')
+
+
+@show
 </body>
 
 </html>

@@ -24,9 +24,9 @@ class UsersHomeController extends Controller
 
     public function firstuser()
     {
-      
+
       session(['username'=>'admin']);
-      // dd(session('username')); 
+      // dd(session('username'));
       $user = Users::where('username',session('username'))->first();
 
       if($user){
@@ -39,12 +39,12 @@ class UsersHomeController extends Controller
         return view('home.homeuser.firstuser',['user'=>$user]);
       }
       // dd($user);
-    	
+
     }
 
 
     public function dofirstuser(Request $request ,$id)
-    { 
+    {
       $user = $request->except('_token','header','username');
       // $user['uid'] = $request->$id;
        if($request->hasFile('header')){
@@ -62,9 +62,9 @@ class UsersHomeController extends Controller
         }
            // dd($user);
 
-      
+
          try{
-          
+
               $data = \DB::table('message')->update($user);
             if($data){
                 return redirect('/homeuser/firstuser')->with('success','添加成功');
@@ -75,7 +75,7 @@ class UsersHomeController extends Controller
 
         }
 
-    
+
     }
 
     /**
@@ -90,7 +90,13 @@ class UsersHomeController extends Controller
         // $count = \DB::table('goodscar')->where('hid',session('uid'))->count();
         // dd($count);
        $path = \DB::table('path')->where('uid',$user['uid'])->get();
-       session(['path'=>$path]);
+
+
+       foreach ($path as $k  => $v) {
+         $paths = $v;
+         session(['path'=>$paths]);
+       }
+       // session(['path'=>$path]);
        session(['uid'=>$user['uid']]);
        // dd(session()->all());
    		return view('home.homeuser.path',['path'=>$path]);
@@ -116,12 +122,12 @@ class UsersHomeController extends Controller
       ]);
       $path = $request->except('_token');
 
- 
-     
+
+
       // $message = Message::where('uid',$user['uid'])->first();
       // dd($path);
      try{
-          
+
           $dopath = \DB::table('path')->insert($path);
             if($data){
                 return redirect('home.homeuser.path')->with('success','添加成功');
@@ -155,12 +161,12 @@ class UsersHomeController extends Controller
     {
       $pid =  $request->input('id');
       // echo $pid;
-      $count = \DB::table('goodscar')->where('hid',session('uid'))->count();
+      $count = \DB::table('path')->where('uid',session('uid'))->count();
       echo $count;
        // echo $count;
       $delete = \DB::table('path')->where('pid',$pid)->delete();
-     
-      
+
+
     }
-   	
+
 }

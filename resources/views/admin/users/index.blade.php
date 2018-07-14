@@ -77,7 +77,7 @@
                                             <td class="am-hide-sm-only">{{date('Y-m-d H:i:s',$v->addtime)}}</td>
                                             <td>
                                                 <a class="btn btn-info pull-left" href="/admin/users/{{$v->uid}}/edit" role="button">修改</a>
-                                                <a class="btn btn-info pull-left" href="/admin/usersxq/{{$v->uid}}" role="button">详情</a>
+
                                                <form action="/admin/users/{{$v->uid}}" method="post" style='display:inline'>
                                                  {{ csrf_field() }}
                                                  {{ method_field('DELETE') }}
@@ -101,6 +101,8 @@
 <script type="text/javascript">
        
         $('.mws-form-message').fadeOut(5000);
+
+      
 </script>
 
 @endsection

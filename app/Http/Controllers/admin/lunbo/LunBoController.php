@@ -14,16 +14,16 @@ class LunBoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $lunbo = lunbo::paginate(2);
-      
+    {
+        $lunbo = lunbo::paginate(6);
+
         foreach ($lunbo as $k => $v) {
           $img= $v['url'];
           $v['url'] = explode('|',$img);
-             
+
         }
-       
-        
+
+
         // dd($lunbo);
         return view('admin.lunbo.lunboindex',['lunbo'=>$lunbo]);
     }
@@ -60,19 +60,19 @@ class LunBoController extends Controller
     ]);
 
         $res = $request->except(['_token','url']);
-        
 
-        
+
+
         //商品图片
         if($request->hasFile('url')){
 
             $gp = $request->file('url');
 
-            
+
 
             foreach($gp as $k => $v){
 
-              
+
 
                 //设置名字
                 $name = str_random(10).time();
@@ -85,17 +85,17 @@ class LunBoController extends Controller
 
                 // $gc['gid'] = $gid;
 
-                $res['url'][] = '/uploads/'.$name.'.'.$suffix;
+                $res['url'] = '/uploads/'.$name.'.'.$suffix;
 
-                // dump($gc); 
+                // dump($gc);
 
-              
+
 
             }
-            $res['url'] = implode('|',$res['url']);
+            // $res['url'] = implode('|',$res['url']);
 
             // dd($res);
-           
+
             // var_dump($data);
             try{
                  $data = \DB::table('lunbo')->insert($res);
@@ -107,7 +107,7 @@ class LunBoController extends Controller
             return back();
 
         }
-            
+
     }
 }
 
@@ -119,7 +119,7 @@ class LunBoController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -134,11 +134,11 @@ class LunBoController extends Controller
         $lunbo = \DB::table('lunbo')->where('lid',$id)->first();
         // dump($lunbo);
 
-      
+
           $img= $lunbo->url;
-          $lunbo->url = explode('|',$img);
-             
-        
+          // $lunbo->url = explode('|',$img);
+
+
         // dump($lunbo->url);
         return view('admin.lunbo.lunboedit',['lunbo'=>$lunbo]);
     }
@@ -165,19 +165,19 @@ class LunBoController extends Controller
     ]);
 
         $res = $request->except(['_token','url','_method']);
-        
 
-        
+
+
         //商品图片
         if($request->hasFile('url')){
 
             $gp = $request->file('url');
 
-            
+
 
             foreach($gp as $k => $v){
 
-              
+
 
                 //设置名字
                 $name = str_random(10).time();
@@ -190,17 +190,17 @@ class LunBoController extends Controller
 
                 // $gc['gid'] = $gid;
 
-                $res['url'][] = '/uploads/'.$name.'.'.$suffix;
+                $res['url']= '/uploads/'.$name.'.'.$suffix;
 
-                // dump($gc); 
+                // dump($gc);
 
-              
+
 
             }
-            $res['url'] = implode('|',$res['url']);
+            // $res['url'] = implode('|',$res['url']);
 
             // dd($res);
-           
+
             // var_dump($data);
             try{
                  $data = \DB::table('lunbo')->where('lid',$id)->update($res);
@@ -212,7 +212,7 @@ class LunBoController extends Controller
             return back();
 
         }
-            
+
     }
     }
 
@@ -230,12 +230,12 @@ class LunBoController extends Controller
         $urls = $foo->url;
 
         // dd($urls);
-        $urls =  explode('|',$urls);
-        foreach ($urls as $k => $v) {
-          
-           $info = '@'.unlink('.'.$v);
-        }
-        
+        // $urls =  explode('|',$urls);
+        // foreach ($urls as $k => $v) {
+
+           $info = '@'.unlink('.'.$urls);
+        // }
+
 
         if(!$info)  return ;
 

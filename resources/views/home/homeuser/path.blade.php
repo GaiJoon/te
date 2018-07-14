@@ -29,7 +29,7 @@
 
 	<body>
 @section('content')
-		
+
 		<b class="line"></b>
 
 		<div class="center">
@@ -60,27 +60,27 @@
 												<span class="street">{{$v->detail}}</span></p>
 										</div>
 										<div class="new-addr-btn">
-											
+
 											<span class="new-addr-bar">|</span>
 											<a href="javascript:void(0);"><i class="am-icon-trash" idss="{{$v->pid}}"></i>删除</a>
 										</div>
-									</li>	
-								
+									</li>
+
 								@endforeach
 							</ul>
 						@else
 						<span class="qing">请添加地址</span>
-					
+
 					@endif
 
-				
 
 
-						
-					
-				
-						
-					
+
+
+
+
+
+
 						<div class="clear"></div>
 						<a class="new-abtn-type" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0}">添加新地址</a>
 						<!--例子-->
@@ -102,8 +102,8 @@
 								        </ul>
 								    </div>
 								@endif
-								<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;"> 
-									<form class="am-form am-form-horizontal" action="/orders/dopath" method="post">
+								<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
+									<form class="am-form am-form-horizontal" action="/homeuser/dopath" method="post">
 											{{csrf_field()}}
 										<div class="am-form-group">
 											<label for="user-name" class="am-form-label">收货人</label>
@@ -126,19 +126,19 @@
 													<option value="b" selected>湖北省</option>
 												</select> -->
 												<div class="main">
-													<select id="cmbProvince" name="province"></select>  
-													<select id="cmbCity" name="city"></select>  
-													<select id="cmbArea" name="town"></select>  
+													<select id="cmbProvince" name="province"></select>
+													<select id="cmbCity" name="city"></select>
+													<select id="cmbArea" name="town"></select>
 													<!-- <input type="text" value="详细地址" onblur="if(this.value=''){this.value='详细地址'}" onfocus="if(this.value='详细地址'){this.value='';this.style.color='#ff0000'}"> -->
 
 
 												</div>
 
-												
-											  
-										<script type="text/javascript">  
-										addressInit('cmbProvince', 'cmbCity', 'cmbArea');  
-										</script> 
+
+
+										<script type="text/javascript">
+										addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+										</script>
 										<script language="javascript" type="text/javascript" src="http://js.users.51.la/465832.js"></script>
 											</div>
 										</div>
@@ -174,9 +174,9 @@
 							        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 							    }
 							});
-						$(document).ready(function() {							
+						$(document).ready(function() {
 							$(".new-option-r").click(function() {
-								
+
 									$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
 								var id =  $(this).attr('ids')
 
@@ -184,16 +184,16 @@
 								$.get('/homeuser/pathajax',{'id':id},function(data){
 									console.log(data);
 									if ( data== '1' ) {
-											
+
 									}
-									
+
 								})
 							});
 							var $ww = $(window).width();
 							if($ww>640) {
 								$("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
 							}
-							
+
 							// var status = $('.province').parents('p').find('.province').attr('status');
 
 							// if (status == '0') {
@@ -205,21 +205,24 @@
 							var id = $(this).attr('idss');
 							 ts = $(this)
 							$.post('/homeuser/ajaxdelete',{'id':id},function(data){
-								// var 
+								// var
 							var rs = confirm('删除商品?');
 
 							if(!rs) return;
 								// console.log(data);
 								if (data !='0') {
-									ts.parents('ul').remove();
+									ts.parents('li').remove();
+									location.reload(true);
 								}else{
-									$('.am-thumbnails').html('<span class="qing">请添加地址</span>')
+
+									$('.am-thumbnails').html('<span class="qing">请添加地址</span>');
+
 								}
 							})
 
 						})
 
-				
+
 
 					</script>
 
@@ -227,7 +230,7 @@
 
 				</div>
 				<!--底部-->
-				
+
 			</div>
 <aside class="day-list">
 				<ul>

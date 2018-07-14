@@ -30,20 +30,6 @@ class GoodsAdminController extends Controller
             $arr = ['search' => $request->input('search')];
 
 
-        /*$data = Goods::orderBy('id','asc')
-            ->where(function($query) use($request){
-                //检测关键字
-                $gname = $request->input('gname');
-                $p = $request->input('price');
-                //如果用户名不为空
-                if(!empty($gname)) {
-                    $query->where('gname','like','%'.$gname.'%');
-                }
-                //价格区间
-                if(!empty($price)) {
-                    $query->where('price','like','%'.$price.'%');
-                }
-            })->paginate(5); */
 
 
 
@@ -66,7 +52,7 @@ class GoodsAdminController extends Controller
 
         
         
-        $res = Type::select(DB::raw('*,concat(path,tid) as paths'))->
+        $res = Type::select(DB::raw('*,concat(path,id) as paths'))->
                 orderBy('paths')->
                 where('tname','like','%'.$request->input('search').'%')->
 
@@ -181,7 +167,7 @@ class GoodsAdminController extends Controller
      */
     public function edit($id)
     {
-        $cate = Type::select(DB::raw('*,concat(path,tid) as paths'))->
+        $cate = Type::select(DB::raw('*,concat(path,id) as paths'))->
                 orderBy('paths')->
                 get();
             
@@ -317,4 +303,30 @@ class GoodsAdminController extends Controller
 
        }
     }
+
+
+
+    public function ajax(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+
+        // $status = $request->input('value');
+
+        try{
+        if($status == '0'){
+            $data = Goods::where('id',$id)->update(['status'=>'1']);
+            echo 1;
+        }else{
+            $data = Goods::where('id',$id)->update(['status'=>'0']);
+            echo 0;
+        }
+
+
+    }catch(\Exception $e){
+        echo 2;
+        
+    }
+    }
+   
 }

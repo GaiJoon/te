@@ -5,6 +5,7 @@
 
 
 
+
 @section('content')
 					@if (count($errors) > 0)
                         <div class="mws-form-message info">
@@ -47,18 +48,21 @@
                         	@foreach ($res as $k)
 							
                             <tr>
-                                <td>{{$k->tid}}</td>
+                                <td>{{$k->id}}</td>
+
                                 <?php 
 									$n = substr_count($k->path,',')-1;
 								?>
 
                                 <td class="tname">{{str_repeat('&nbsp;',$n*10)}}|--{{$k->tname}}</td>
+
                                 <td class="am-hide-sm-only">{{$k->pid}}</td>
                                 <td class="am-hide-sm-only">{{$k->path}}</td>
                                 <td>
                                    
-                                    <a href="/admin/type/{{$k->tid}}/edit" class=" btn btn-info">修改</a>
-									<form action="/admin/type/{{$k->tid}}" method="post" style='display:inline'>
+                                    <a href="/admin/type/{{$k->id}}/edit" class=" btn btn-info">修改</a>
+									<form action="/admin/type/{{$k->id}}" method="post" style='display:inline'>
+
 										{{csrf_field()}}
 
                                 {{method_field('DELETE')}}
@@ -86,9 +90,10 @@
 
 @section('js')
 <script type="text/javascript">
-    
+
 
     $('.mws-form-message ').fadeOut(2000);
+
 
 
 </script>

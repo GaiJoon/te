@@ -1,6 +1,10 @@
 @extends('extends.admin')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 @section('title', $title)
+
+
+
 <style type="text/css">
     p{
         display: inline;
@@ -46,10 +50,10 @@
 
     <div class="tpl-block">
                     <form action="/admin/goods" method='get'  class="form-horizontal" >
-        	               <div class="col-xs-3">
+                           <div class="col-xs-3">
                                     <input type="text" name='search'  class="form-control" placeholder="搜索商品名..." >
                            </div>
-        	                <button class='btn btn-success'>搜索</button>
+                            <button class='btn btn-success'>搜索</button>
                     </form>
         <div class="am-g">
             <div class="am-u-sm-12">
@@ -62,7 +66,8 @@
                                 <th class="table-author am-hide-sm-only">生产厂家</th>
                                 <th class="table-date am-hide-sm-only">库存</th>
                                 <th class="table-date am-hide-sm-only">销量</th>
-                                <th class="table-date am-hide-sm-only">价格</th>
+                                <th class="table-date am-hide-sm-only">原价格</th>
+                                <th class="table-date am-hide-sm-only">促销价格</th>
                                 <th class="table-date am-hide-sm-only">文字详情</th>
                                 <th class="table-date am-hide-sm-only" >商品描述</th>
                                 <th class="table-date am-hide-sm-only">添加时间</th>
@@ -72,7 +77,7 @@
                         </thead>
                         <tbody>
                             @foreach($data as $k => $v)
-                            	<tr>
+                                <tr>
                                     <td  title="{{$v->id}}">{{$v->id}}</td>
                                     <td  title="{{$v->tid}}">{{$v->tid}}</td>
                                     <td  title="{{$v->gname}}">{{$v->gname}}</td>
@@ -80,13 +85,17 @@
                                     <td  title="{{$v->stock}}">{{$v->stock}}</td>
                                     <td  title="{{$v->salecnt}}">{{$v->salecnt}}</td>
                                     <td  title="{{$v->price}}">{{$v->price}}</td>
+                                    <td  title="{{$v->price}}">{{$v->cheap}}</td>
                                     <td  title="{{$v->gdesc}}">{{$v->gdesc}}</td>
                                     <td  title="{{$v->content}}">{{$v->content}}</td>
                                     <td title='{{date('Y-m-d H:i:s',$v->addtime)}}''>{{date('Y-m-d H:i:s',$v->addtime)}}</td>
+                                    
+
+                                    <!-- {{dump($v->status)}} -->
                                     @if($v->status == 1)
-                                    <td >上架</td>
+                                    <td ><button class="btn btn-danger sjia" id="<?php echo $v->id ?>" onclick="stu({{$v->id}})" value="1">下架</button></td>
                                     @else
-                                    <td >下架</td>
+                                    <td ><button class="btn btn-success  sjia" id="<?php echo $v->id ?>"  onclick="stu({{$v->id}})" value="0">上架</button></td>
                                     @endif
 
                                     <th>
@@ -99,12 +108,13 @@
                                     </form>
                                     </th>
                                 </tr>
+                                <!-- {{dump($v->id)}} -->
+
                             @endforeach
                         </tbody>
                     </table>
                   
-
-                    <hr>
+                        <hr>
 
                 
                  {{  $data->appends($arr)->links() }}
@@ -119,14 +129,51 @@
 
 @section('js')
 <script type="text/javascript">
+    //错误信息
+     $('.mws-form-message ').fadeOut(2000);
+
+
+
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function stu($e){
+        var id = $e;
+        var status = $('.sjia'+'#'+id).val();
+        if(status == 1){
+            var aa = '你确定上架吗';
+        }else{
+            var aa = '你确定下架吗';
+        }
     
-    /*setTimeout(function(){
+        var vv = confirm(aa);
 
-        $('.mws-form-message').remove();
+        if(vv){
+            $.post('/admin/ajax',{id:id,status:status},function(data){
 
-    },3000)*/
+                if(data == 1){
+                    // alert(12345);
+                    $('.sjia'+'#'+id).attr('class','btn btn-danger sjia').text('下架');
+                    $('.sjia'+'#'+id).val(1);
+                }else if(data == 0){
 
-    $('.mws-form-message ').fadeOut(2000);
+                    // alert('asdf');
+                    $('.sjia'+'#'+id).attr('class','btn btn-success sjia').text('上架');
+                    $('.sjia'+'#'+id).val(0);
+
+                }else{
+                    alert('修改失败');
+                }
+            })
+        }
+    }
+
+
+        
 
 </script>
 @endsection

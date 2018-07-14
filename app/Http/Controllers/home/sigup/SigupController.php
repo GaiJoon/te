@@ -21,22 +21,19 @@ class SigupController extends Controller
         
         //表单验证
          $this->validate($request, [
-        'lname' => 'required|unique:homelogins,lname|regex:/^\w{1,12}$/',
+        'lname' => 'required|unique:homelogins,lname',
         'password'=>'required|regex:/^\S{1,12}$/',
         'upas'=>'same:password',
         'email'=>'email',
-        'phone'=>'required|unique:homelogins,phone|regex:/^1[3~9]\d{9}$/'
+        'phone'=>'required'
 
         ],[
         'lname.required'=>'姓名不能为空',
-        'username.regex'=>'姓名格式不正确',
         'password.required'=>'密码不能为空',
         'password.regex'=>'密码格式不正确',
         'username.unique'=>'名字不能重复',
         'email.email'=>'邮箱格式不正确',
-        'phone.required'=>'手机号不能为空',
-        'phone.unique'=>'手机号不能重复',
-        'phone.regex'=>'手机号格式不正确'
+        'phone.requ`ired'=>'手机号不能为空',
         ]);
     	$res = $request->except('_token','upas');
 

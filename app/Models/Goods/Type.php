@@ -13,7 +13,7 @@ class Type extends Model
      */
     protected $table = 'type';
 
-    protected $primaryKey = 'tid';
+    protected $primaryKey = 'id';
 
 
     /**
@@ -30,6 +30,28 @@ class Type extends Model
      */
     public $timestamps = false;
 
+
+
+    public static function getsubcate($pid)
+    {
+
+        $cate = Type::where('pid',$pid)->get();
+        
+        $arr = [];
+
+        foreach($cate as $k=>$v){
+
+            if($v->pid==$pid){
+
+                $v->sub=self::getsubcate($v->id);
+
+                $arr[]=$v;
+            }
+        }  
+        return $arr;
+    }
+
+    
 
 
     

@@ -8,7 +8,7 @@
         <div class="caption font-green bold">
             <span class="am-icon-code"></span> 轮播添加
         </div>
-      
+
 
     </div>
 
@@ -43,12 +43,12 @@
                         </div>
                     </div>
 
-                    
 
-               
+
+
 
                     <div class="am-form-group">
-                        <label for="user-weibo" class="am-u-sm-3 am-form-label">封面图 
+                        <label for="user-weibo" class="am-u-sm-3 am-form-label">封面图
                         	<span class="tpl-form-line-small-title">Images</span>
                         </label>
                         <div class="am-u-sm-9">
@@ -58,13 +58,13 @@
                                 	 <!--文件上传选择按钮-->
 
 										<div id="preview">
-                                        @foreach($lunbo->url as $k=>$v)
-										<img id="imghead"src="{{$v}}" />
-                                        @endforeach
+
+										<img id="imghead"src="{{$lunbo->url}}" />
+                                        
                                 		</div>
                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
 									<i class="am-icon-cloud-upload"></i> 添加封面图片</button>
-                                
+
                             </div>
 
                         </div>
@@ -94,8 +94,8 @@
                             <small>开启</small>
                         </div>
                     </div>
-                   
-                   
+
+
                     <div class="am-form-group">
                         <div class="am-u-sm-9 am-u-sm-push-3">
                             <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
@@ -112,7 +112,7 @@
 @endsection
 @section('js')
 <script type="text/javascript">
-    
+
     /*setTimeout(function(){
 
         $('.mws-form-message').remove();

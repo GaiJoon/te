@@ -28,7 +28,7 @@
 
 
                         <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal" action="/admin/users/{{$users->uid}}" method="post">
+                            <form class="am-form am-form-horizontal" action="/admin/users/{{$users->uid}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                            {{method_field('PUT')}}
                                 <div class="am-form-group">
@@ -45,6 +45,13 @@
                                             <option value="0" @if($users['auth']=="0")selected @endif>后台管理员</option>
                                             <option value="1" @if($users['auth']=="1")selected @endif>普通用户</option>
                                         </select>
+                                    </div>
+                                </div>
+                                 <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">头像</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="file" id="user-name" name="img">
+                                        <img src="{{$users->img}}" alt="">
                                     </div>
                                 </div>
                                 <div class="am-form-group">

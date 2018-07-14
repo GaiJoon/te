@@ -152,7 +152,8 @@
         // API: start() Callback
         setTimeout(function(){
           slider.vars.start(slider);
-        }, 200);
+        }, 2000);
+
       },
       asNav: {
         setup: function() {
