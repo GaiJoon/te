@@ -40,12 +40,16 @@ Route::get('/', function () {
 
  });
 
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
 
 
 // 前台登陆注册路由组
   Route::group([],function(){
-		
+
 		// 前台注册
   	Route::any('/home/sigup','home\sigup\SigupController@regist');
   		// 执行登陆路由
@@ -146,7 +150,10 @@ Route::group([],function(){
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
 /**
  * 		前  后  台   首页
  */
@@ -254,5 +261,8 @@ Route::group([],function(){
 
 
 });
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5

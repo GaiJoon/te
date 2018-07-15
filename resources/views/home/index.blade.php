@@ -1,5 +1,6 @@
 @extends('extends.home')
 @section('title','集市')
+<link rel="stylesheet" href="/css/shutter.css">
 @section('content')
 
 
@@ -8,31 +9,49 @@
             <div class="container">
                 <div class="menu">
                     <div class="cd-dropdown-wrapper">
-                        <a class="cd-dropdown-trigger" href="#0">Store Categories</a>
+                        <a class="cd-dropdown-trigger" href="#0">   商品分类   </a>
                         <nav class="cd-dropdown">
                             <a href="#0" class="cd-close">Close</a>
                             <ul class="cd-dropdown-content">
                                 <li><a href>今日优惠</a></li>
+<<<<<<< HEAD
                                
+=======
+
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                 @foreach($data as $k)
 
                                 <li class="has-children">
                                     <a href="/home/list/{{$k->id}}">{{$k->tname}}</a>
+<<<<<<< HEAD
                                     
+=======
+
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                     <ul class="cd-secondary-dropdown ">
                                         @foreach($k->sub as $kk)
 
                                         <li class="has-children">
                                             <a href="#">丅丅丅 </a>
+<<<<<<< HEAD
                                             <ul class="is-hidden"> 
                                                 <li class="">
                                                     <a href="/home/list?id={{$kk->id}}">{{$kk->tname}}</a> 
+=======
+                                            <ul class="is-hidden">
+                                                <li class="">
+                                                    <a href="/home/list?id={{$kk->id}}">{{$kk->tname}}</a>
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                                 </li>
                                             </ul>
                                         </li>
                                         @endforeach
                                     </ul>
+<<<<<<< HEAD
                                     
+=======
+
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                 </li>
                                 @endforeach
                                 <li><a href="sitemap.html">完整网站目录 </a></li>
@@ -58,6 +77,7 @@
     <!-- //header -->
     <!-- banner -->
     <div class="banner">
+<<<<<<< HEAD
         <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
             <!-- Wrapper-for-Slides -->
             <div class="carousel-inner" role="listbox">
@@ -98,6 +118,42 @@
             </a>
         </div>
         <script src="/homes/js/custom.js"></script>
+=======
+      <div class="shutter" style="width:1580px;">
+      <div class="shutter-img">
+        <?php foreach ($Lunbo as $k => $v): ?>
+          <a href="#" data-shutter-title="{{$v->title}}"><img src="{{$v->url}}" alt="#"></a>
+        <?php endforeach; ?>
+
+        <!-- <a href="#" data-shutter-title="Super Man"><img src="picture/shutter_2.jpg" alt="#"></a>
+        <a href="#" data-shutter-title="The Hulk"><img src="picture/shutter_3.jpg" alt="#"></a>
+         <a href="#" data-shutter-title="The your"><img src="picture/shutter_4.jpg" alt="#"></a> -->
+      </div>
+      <ul class="shutter-btn">
+        <li class="prev"></li>
+        <li class="next"></li>
+      </ul>
+      <div class="shutter-desc">
+        <p>Iron Man</p>
+      </div>
+    </div>
+
+    <!-- <script src="/js/jquery.min.js"></script> -->
+    <script src="/js/velocity.js"></script>
+    <script src="/js/shutter.js"></script>
+    <script>
+      $(function () {
+        $('.shutter').shutter({
+          shutterW: 1582, // 容器宽度
+          shutterH: 500, // 容器高度
+          isAutoPlay: true, // 是否自动播放
+          playInterval: 3000, // 自动播放时间
+          curDisplay: 3, // 当前显示页
+          fullPage: false // 是否全屏展示
+        });
+      });
+    </script>
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
     </div>
     <!-- //banner -->
     <!-- welcome -->
@@ -107,6 +163,7 @@
                 <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class=" nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">
+<<<<<<< HEAD
                             <i class="fa fa-laptop" aria-hidden="true"></i> 
                             <h5>Electronics</h5>
                         </a></li>
@@ -123,6 +180,24 @@
                             <h5>Home Decor</h5>
                         </a></li>
                         <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab"> 
+=======
+                            <i class="fa fa-laptop" aria-hidden="true"></i>
+                            <h5>Electronics</h5>
+                        </a></li>
+                        <li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab">
+                            <i class="fa fa-female" aria-hidden="true"></i>
+                            <h5>Fashion</h5>
+                        </a></li>
+                        <li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <h5>Photo & Gifts</h5>
+                        </a></li>
+                        <li role="presentation"><a href="#decor" role="tab" id="decor-tab" data-toggle="tab">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <h5>Home Decor</h5>
+                        </a></li>
+                        <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab">
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                             <i class="fa fa-motorcycle" aria-hidden="true"></i>
                             <h5>Sports</h5>
                         </a></li>
@@ -134,7 +209,11 @@
                             <div class="tabcontent-grids">
                                 <div id="owl-demo" class="owl-carousel">
                                     @foreach($goods as $k)
+<<<<<<< HEAD
                                     <?php 
+=======
+                                    <?php
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                         $img = $k->gimg[0];
                                      ?>
                                      <!-- {{dump($img->gpic)}} -->
@@ -192,7 +271,11 @@
                                 </script>
                                 <div id="owl-demo1" class="owl-carousel">
                                     @foreach($goods as $k)
+<<<<<<< HEAD
                                     <?php 
+=======
+                                    <?php
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                         $img = $k->gimg[1];
                                      ?>
                                     <div class="item">
@@ -248,7 +331,11 @@
                                 </script>
                                 <div id="owl-demo2" class="owl-carousel">
                                     @foreach($goods as $k)
+<<<<<<< HEAD
                                     <?php 
+=======
+                                    <?php
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                         $img = $k->gimg[2];
                                      ?>
                                     <div class="item">
@@ -306,7 +393,11 @@
                                 </script>
                                 <div id="owl-demo3" class="owl-carousel">
                                     @foreach($goods as $k)
+<<<<<<< HEAD
                                     <?php 
+=======
+                                    <?php
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                         $img = $k->gimg[3];
                                      ?>
                                     <div class="item">
@@ -363,7 +454,11 @@
                                 </script>
                                 <div id="owl-demo4" class="owl-carousel">
                                     @foreach($goods as $k)
+<<<<<<< HEAD
                                     <?php 
+=======
+                                    <?php
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
                                         $img = $k->gimg[0];
                                      ?>
                                     <div class="item">
@@ -421,7 +516,7 @@
                        <img src="{{$v->img}}" alt="" style="width:370px; height:251px; ">
                     </a>
                 </div>
-                
+
             @endforeach
             <div class="clerfix"> </div>
 

@@ -24,12 +24,13 @@
         @endif
         <div class="am-g">
             <div class="tpl-form-body tpl-form-line">
-                <form class="am-form tpl-form-line-form" action="/admin/lunbo" method="post" enctype="multipart/form-data">
+                <form class="am-form tpl-form-line-form" action="/admin/lunbo/{{$lunbo->lid}}" method="post" enctype="multipart/form-data">
                 		{{csrf_field()}}
+                        {{ method_field('PUT') }}
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
                         <div class="am-u-sm-9">
-                            <input type="text" name="title" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
+                            <input type="text" value="{{$lunbo->title}}" name="title" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">
                             <small>请填写标题文字10-20字左右。</small>
                         </div>
                     </div>
@@ -37,7 +38,7 @@
                     <div class="am-form-group">
                         <label for="user-email" class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
                         <div class="am-u-sm-9">
-                            <input type="text" name="addtime" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
+                            <input type="text" value="{{$lunbo->addtime}}" name="addtime" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
                             <small>发布时间为必填</small>
                         </div>
                     </div>
@@ -53,17 +54,19 @@
                         <div class="am-u-sm-9">
                             <div class="am-form-group am-form-file">
                                 <div class="tpl-form-file-img">
-                                	<input type="file"name="url[]"id="file" accept="image/*"  onchange="imgChange(this);"/>
+                                	<input type="file" name="url[]" id="file" accept="image/*" multiple onchange="imgChange(this);"/>
                                 	 <!--文件上传选择按钮-->
 
 										<div id="preview">
-										<img id="imghead"src="/admins/assets/img/a5.png" />
+
+										<img id="imghead"src="{{$lunbo->url}}" />
+                                        
                                 		</div>
                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
 									<i class="am-icon-cloud-upload"></i> 添加封面图片</button>
 
                             </div>
-                             
+
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -81,9 +84,13 @@
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label">状态 <span class="tpl-form-line-small-title">status</span></label>
                         <div class="am-u-sm-9">
-                            <input type="radio" name="status" value="1" checked class="tpl-form-input">
+                            <input type="radio" name="status" value="1"<?php if ($lunbo->status==1): ?>
+                                checked
+                            <?php endif ?> class="tpl-form-input">
                             <small>关闭</small>
-                            <input type="radio" name="status" value="2" class="tpl-form-input" >
+                            <input type="radio" name="status" value="2" <?php if ($lunbo->status==2 ): ?>
+                                checked
+                            <?php endif ?> class="tpl-form-input" >
                             <small>开启</small>
                         </div>
                     </div>

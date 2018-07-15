@@ -38,7 +38,11 @@
     <script>
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
+<<<<<<< HEAD
             autoPlay: 4000, //Set AutoPlay to 3 seconds 
+=======
+            autoPlay: 4000, //Set AutoPlay to 3 seconds
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
 
             items: 4,
             itemsDesktop: [640, 5],
@@ -102,11 +106,11 @@
 
 
 
-    
+
 </head>
 
 <body>
-     
+
     <script>
     $('#myModal88').modal('show');
     </script>
@@ -273,14 +277,20 @@ c
                             @endforeach
                         </ul>
                     </div>
-                   
+
                     <div class="clearfix"></div>
                 </div>
-              
 
+<<<<<<< HEAD
    
            
           
+=======
+
+
+
+
+>>>>>>> 06b41f199fbb517c162eb18c045ec877ca47b6d5
              <div class="col-md-3  social-icons" style="float: right;position: relative; bottom: -38px;">
                 <h4 style="color:white; ">保持联系</h4>
                 <ul>
@@ -306,7 +316,7 @@ c
 
         </div>
     </div>
-     
+
     <!-- //footer -->
     <div class="copy-right">
         <div class="container">

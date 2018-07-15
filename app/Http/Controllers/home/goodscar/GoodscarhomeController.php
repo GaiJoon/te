@@ -4,10 +4,10 @@ namespace App\Http\Controllers\home\goodscar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\admin\Users;
 class GoodscarhomeController extends Controller
 {
-    
+
     /**
      * 显示资源列表
      *
@@ -16,117 +16,93 @@ class GoodscarhomeController extends Controller
 
     public function index()
     {
-        // // echo '2121';
-        // $goods = session("cart");
-        // $cnt = 0; $sum = 0;//总数量//总金额
-        // foreach($goods as $k=>$v){
-        //     $cnt += $v->cnt;
-        //     $sum += $v->price*$v->cnt;
-        // }
-        // session('orders.cnt',$cnt);
-        // //保存订单数量
-        // session('orders.sum',$sum);
-        // //保存订单金额
-        // return view('cart/index',['goods'=>$goods,'cnt'=>$cnt,'sum'=>$sum]);
+        // session('hid')
+        $user = Users::where('username',session('username'))->first();
+        $goods = \DB::table('goodscar')->where('hid','1')->get();
+        $path = \DB::table('path')->where([
+                  ['status', '=', '0'],
+                  ['uid', '=','3'],
+              ])->get();
+            // dd($path);
+        foreach ($path as $k  => $v) {
+          $paths = $v;
+          session(['path'=>$paths]);
+        }
+        // dd($path);
 
-        return view('home.goodscar.goodscar');
+
+        return view('home.goodscar.goodscar',['goods'=>$goods]);
     }
 
-    /**
-     * 显示创建资源表单页.
-     *
-     * @return \think\Response
-     */
     public function create()
     {
-        //
-    }
 
-    /**
-     * 保存新建的资源
-     *
-     * @param  \think\Request  $request
-     * @return \think\Response
-     */
-    public function save(Request $req,$id=1)
-    {
-        // $goods = Goods::get($id);
-        // //获取商品信息
-        // $goods->cnt = $_POST['cnt'];
-        // //本次购买数量
-        // session("cart.$id",$goods);
-        // //获取商品信息保存到session中
-        // return view('cart/save',['goods'=>$goods]);
-
-    	
-    	//获取商品id
-    	$goods = $id;
-    	//在获取购买数量
-
-
-    	//存入session
-    	// 写入页面
-    	dump($goods);
-    }
-
-    /**
-     * 显示指定的资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
-
-    /**
-     * 显示编辑资源表单页.
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request  $request
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
      * 删除指定资源
-     *
+     *d
      * @param  int  $id
      * @return \think\Response
      */
-    public function delete($id)
+    public function delete(Request $request)
     {
-        session("cart.$id",null);
-        return redirect('/cart/index');
+       $id = $request->input('id');
+       // dd($id);
+        //构造器删除
+        $data = \DB::table('goodscar')->where('cid',$id)->delete();
+
+        $count = \DB::table('goodscar')->where('hid','1')->count();
+
+        echo $count;
+
+
     }
-    //购物车减一操作
-    public function dec($id)
+
+    public function jia(Request $request)
     {
-        session("cart.$id")->cnt--;
-        if(session("cart.$id")->cnt<1){
-            session("cart.$id")->cnt =1;
-        }
-        return redirect('/cart/index');
+        $id = $request->input('id');
+        $sum = $request->input('sum');
+        // echo $id;
+        // echo $sum;
+        // $all = $request->all();
+        // dd($id,$sum);
+        // session(['cart'.$id =>$goods]);
+        // session("cart.$id",$goods);
+        $data =\DB::table('goodscar')->where('cid',$id)->update(['sum'=>$sum]);
+        // dd($request->all());
     }
-    //购物车加一操作
-    public function inc($id)
+
+    public function jian(Request $request)
     {
-        session("cart.$id")->cnt++;
-        return redirect('/cart/index');
+        $id = $request->input('id');
+        $sum = $request->input('sum');
+        // session("cart.$id",$goods);
+        // session(['cart'.$id =>$goods]);
+         $data =\DB::table('goodscar')->where('cid',$id)->update(['sum'=>$sum]);
+    }
+
+    public function zongjia(Request $request)
+    {
+        $id = $request->input('id');
+        $zongjia = $request->input('zongjia');
+        $num = $request->input('num');
+        echo $zongjia;
+        echo $num;
+        $data =\DB::table('goodscar')->where('cid',$id)->update(['status'=>'2']);
+
+        \Cookie::queue('zongjia',$zongjia,1);
+        \Cookie::queue('num',$num,1);
+
+
+         // \DB::table('goodscar')->where('cid',$id)->detele();
+        // $request->session()->keep(['zongjia',$zongjia]);
+    }
+
+    public function cun(Request $request)
+    {
+
+        // echo $cun;
+
     }
 }

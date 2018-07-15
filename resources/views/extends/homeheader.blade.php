@@ -39,7 +39,7 @@
     <script>
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
-            autoPlay: 3000, //Set AutoPlay to 3 seconds 
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
             items: 4,
             itemsDesktop: [640, 5],
             itemsDesktopSmall: [480, 2],
@@ -100,13 +100,13 @@
     <script src="/homes/js/bootstrap.js"></script>
 
 
-        
 
-    
+
+
 </head>
 
 <body>
-     
+
     <script>
     $('#myModal88').modal('show');
     </script>
@@ -185,7 +185,7 @@
 
 
 
-                
+
 
 
     <!-- //cart-js -->
